@@ -38,6 +38,23 @@ body {
     width: 30px; /* Adjust the size of the social media icons */
     height: auto;
 }
+.download-button {
+    background-color: #fff;
+    color: #464646;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline from links */
+    display: inline-block; /* Make it behave like a block element without disrupting the flow */
+    margin-right: 10px; /* Adjust margin as needed */
+    cursor: pointer;
+}
+
+
+/* Change color on hover */
+.download-button:hover {
+    background-color: #464646;
+    color: #fff;
+}
 
 .header {
     display: flex;
@@ -45,7 +62,7 @@ body {
     justify-content: center;
     text-align: center;
     padding: 50px;
-    background-color: #ffcccb;
+    background-color: #eaebdc;
 }
 
 .headshot-container {
@@ -95,6 +112,9 @@ nav a {
     color: #333;
     font-weight: bold;
 }
+nav :hover{
+    color: #eaebdc;
+}
 
 section {
     text-align:left;
@@ -106,4 +126,47 @@ footer {
     padding: 10px;
     background-color: #333;
     color: #fff;
+}
+#books {
+    padding: 20px;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.book-cover {
+    width: 150px; /* Adjust the width of the book covers */
+    margin-right: 10px; /* Adjust the margin between book covers */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    background-color: #3498db; /* Adjust the color of the arrows */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.arrow.left {
+    left: 0;
+}
+
+.arrow.right {
+    right: 0;
 }

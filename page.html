@@ -43,9 +43,19 @@
 
         <section id="books">
             <h2>Favorite Books</h2>
-            <ul>
-                <!-- Add your book list here -->
-            </ul>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel">
+                        <!-- Add your book covers here -->
+                        <div class="book-cover"><img src="book1.jpg" alt="Book 1"></div>
+                        <div class="book-cover"><img src="book2.jpg" alt="Book 2"></div>
+                        <div class="book-cover"><img src="book3.jpg" alt="Book 3"></div>
+                        <!-- Add more book covers as needed -->
+                    </div>
+                </div>
+                <button class="arrow left" onclick="prevSlide()">&#8249;</button>
+                <button class="arrow right" onclick="nextSlide()">&#8250;</button>
+            </div>
         </section>
     </div>
 
@@ -53,6 +63,7 @@
         <section id="contact">
             <h2>Contact Me!</h2>
             <p>Contact information and social media links go here.</p>
+            <a href="resume.pdf" class="download-button" download>Download Resume</a>
             <div class="social-media-buttons">
                 <a href="https://www.linkedin.com/in/elliekburton/" target="_blank" rel="noopener noreferrer">
                     <img src="linkedin.png" alt="LinkedIn">
