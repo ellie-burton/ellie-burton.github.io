@@ -1,84 +1,134 @@
-<div style="width: 1440px; height: 6580px; position: relative; background: white">
-    <div style="width: 1440px; height: 810px; left: 0px; top: 809px; position: absolute; background: #959841"></div>
-    <div style="width: 311px; height: 123px; left: 588px; top: 3239px; position: absolute; color: #6B717E; font-size: 58px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">My Hobbies</div>
-    <div style="width: 367px; height: 68px; left: 1082px; top: 41px; position: absolute; color: #6B717E; font-size: 58px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">Ellie Burton</div>
-    <div style="width: 311px; height: 123px; left: 565px; top: 1619px; position: absolute; color: #6B717E; font-size: 58px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">My Projects</div>
-    <img style="width: 838px; height: 488px; left: 213px; top: 155px; position: absolute" src="https://via.placeholder.com/838x488" />
-    <div style="width: 395px; height: 385px; left: 16px; top: 224px; position: absolute; background: #959841; border-radius: 9999px"></div>
-    <div style="width: 944px; height: 96px; left: 277px; top: 672px; position: absolute; background: #956F77; border-radius: 40px"></div>
-    <div style="width: 865px; height: 134px; left: 330px; top: 681px; position: absolute; color: #FFE8E1; font-size: 28px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">I’m a sophomore at The University of Alabama studying Computer and Data Science. I love learning new things and helping my community.</div>
-    <div style="width: 808px; height: 123px; left: 110px; top: 1078px; position: absolute"><span style="color: white; font-size: 28px; font-family: Vollkorn; font-weight: 700; word-wrap: break-word">Advocate for Social Impact:  </span><span style="color: white; font-size: 28px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">I'm driven by a deep desire to use my technical skills to make a real difference, especially in fighting against human trafficking and empowering education.</span></div>
-    <div style="width: 890.47px; height: 115px; left: 114.29px; top: 1224px; position: absolute"><span style="color: white; font-size: 28px; font-family: Vollkorn; font-weight: 700; word-wrap: break-word">Empowering Leader:</span><span style="color: white; font-size: 28px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word"> Leading with empathy, I strive to create spaces where everyone feels valued, fostering teamwork and encouraging individual growth. I focus on this as the President of ACM-Women at UA.</span></div>
-    <div style="width: 1247px; height: 85px; left: 110px; top: 1362px; position: absolute"><span style="color: white; font-size: 28px; font-family: Vollkorn; font-weight: 700; word-wrap: break-word">Solver of Puzzles:</span><span style="color: white; font-size: 28px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word"> I thrive when faced with tough challenges, combining my analytical skills with creativity to find innovative solutions.</span></div>
-    <div style="width: 1247px; height: 118px; left: 107px; top: 1470px; position: absolute"><span style="color: white; font-size: 28px; font-family: Vollkorn; font-weight: 700; word-wrap: break-word">Connector & Collaborator:</span><span style="color: white; font-size: 28px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word"> Communication is key! I enjoy translating complex ideas and working with diverse teams to achieve shared goals. I have taken Business courses to support this endeavor, and I am actively planning to pursue a Master's in Business Analytics at UA. </span></div>
-    <div style="width: 67px; height: 103px; left: 69px; top: 301px; position: absolute; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-      <div style="width: 67px; height: 103px; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-        <div style="width: 67px; height: 103px; color: #FFE8E1; font-size: 85px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">Hi, I’m<br/>Ellie!</div>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Ellie Burton - Portfolio</title>
+</head>
+<script src="script.js"></script>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <header class="header">
+        <div class="headshot-container">
+            <!-- Add your headshot here -->
+            <div class="headshot-background"></div>
+            <img src="headshot.png" alt="Headshot" class="headshot">
+        </div>
+        <div class="header-content">
+            <h1>Ellie Burton</h1>
+            <p>Welcome to my portfolio!</p>
+        </div>
+    </header>
+
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#books">My Bookshelf</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi! I'm Ellie Burton, and I am a sophomore at The University of Alabama studying Computer Science and Data Science. I love learning new things and helping others.</p>
+            <p>Currently, I do research in the Institute of Data and Analytics at UA. I work on the Sex Trafficking Analytics for Network Detection and Disruption and Detection Initiative. This experience has shown me how data science and coding can translate into impactful, real-life applications. I'm driven by a deep desire to use my technical skills to make a real difference, especially in fighting against sex trafficking and empowering education. </p>
+            <p>I also serve as the president of UA’s Association of Computing Machinery Women’s chapter, where I have restarted and officially certified the club, as well as increased membership by 150%. I strive to create spaces where everyone feels valued, fostering teamwork and encouraging individual growth.</p>
+            <p> Overall, I thrive when faced with tough challenges, combining my analytical skills with creativity to find innovative solutions. I enjoy translating complex ideas and working with diverse teams to achieve shared goals. To serve this goal, I am planning to pursue a Master's in Business Analytics at UA.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <section class="carousel" aria-label="Gallery">
+                    <ol class="carousel__viewport">
+                      <li id="carousel__slide1"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper">
+                          <a href="#carousel__slide4"
+                             class="carousel__prev">Go to last slide</a>
+                          <a href="#carousel__slide2"
+                             class="carousel__next">Go to next slide</a>
+                        </div>
+                      </li>
+                      <li id="carousel__slide2"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide1"
+                           class="carousel__prev">Go to previous slide</a>
+                        <a href="#carousel__slide3"
+                           class="carousel__next">Go to next slide</a>
+                      </li>
+                      <li id="carousel__slide3"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide2"
+                           class="carousel__prev">Go to previous slide</a>
+                        <a href="#carousel__slide4"
+                           class="carousel__next">Go to next slide</a>
+                      </li>
+                      <li id="carousel__slide4"
+                          tabindex="0"
+                          class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide3"
+                           class="carousel__prev">Go to previous slide</a>
+                        <a href="#carousel__slide1"
+                           class="carousel__next">Go to first slide</a>
+                      </li>
+                    </ol>
+                    <aside class="carousel__navigation">
+                      <ol class="carousel__navigation-list">
+                        <li class="carousel__navigation-item">
+                          <a href="#carousel__slide1"
+                             class="carousel__navigation-button">Go to slide 1</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                          <a href="#carousel__slide2"
+                             class="carousel__navigation-button">Go to slide 2</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                          <a href="#carousel__slide3"
+                             class="carousel__navigation-button">Go to slide 3</a>
+                        </li>
+                        <li class="carousel__navigation-item">
+                          <a href="#carousel__slide4"
+                             class="carousel__navigation-button">Go to slide 4</a>
+                        </li>
+                      </ol>
+                    </aside>
+                  </section>
+            </div>
+        </section>
     </div>
-    <div style="width: 311px; height: 123px; left: 607px; top: 809px; position: absolute; color: white; font-size: 58px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">About Me</div>
-    <div style="width: 1440px; height: 810px; left: 0px; top: 4049px; position: absolute; background: #959841"></div>
-    <div style="width: 80px; height: 42px; left: 56px; top: 67px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <div style="width: 80px; height: 42px; color: #6B717E; font-size: 30px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">Home</div>
+
+    <div class="contact-bar">
+        <section id="contact">
+            <h2>Contact Me!</h2>
+            <p>Contact information and social media links go here.</p>
+            <a href="resume.pdf" class="download-button" download>Download Resume</a>
+            <div class="social-media-buttons">
+                <a href="https://www.linkedin.com/in/elliekburton/" target="_blank" rel="noopener noreferrer">
+                    <img src="linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="your_social_media_link" target="_blank" rel="noopener noreferrer">
+                    <img src="github.png" alt="Github">
+                </a>
+                <!-- Add more social media buttons as needed -->
+            </div>
+        </section>
     </div>
-    <div style="width: 133px; height: 42px; left: 175px; top: 67px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <div style="width: 133px; height: 42px; color: #6B717E; font-size: 30px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">About Me</div>
-    </div>
-    <div style="width: 110px; height: 42px; left: 347px; top: 67px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <div style="width: 110px; height: 42px; color: #6B717E; font-size: 30px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">Projects</div>
-    </div>
-    <div style="width: 239px; height: 42px; left: 496px; top: 67px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <div style="width: 239px; height: 42px; color: #6B717E; font-size: 30px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">What I’m Reading</div>
-    </div>
-    <div style="width: 109px; height: 42px; left: 924px; top: 67px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <div style="width: 109px; height: 42px; color: #6B717E; font-size: 30px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">Contact</div>
-    </div>
-    <div style="width: 111px; height: 42px; left: 774px; top: 67px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <div style="width: 111px; height: 42px; color: #6B717E; font-size: 30px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">Hobbies</div>
-    </div>
-    <div style="width: 283px; height: 51px; left: 1112px; top: 154px; position: absolute">
-      <div style="width: 283px; height: 51px; left: 0px; top: 0px; position: absolute; background: #FFE8E1; border-radius: 50px"></div>
-      <div style="width: 266px; height: 42px; left: 17px; top: 4px; position: absolute; color: #956F77; font-size: 30px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">Download Resume</div>
-    </div>
-    <div style="width: 366px; height: 510px; left: 124px; top: 1800px; position: absolute; background: #D9D9D9; border-radius: 50px"></div>
-    <div style="width: 1440px; height: 810px; left: 0px; top: 2429px; position: absolute; background: #956F77"></div>
-    <div style="width: 366px; height: 510px; left: 552px; top: 1800px; position: absolute; background: #D9D9D9; border-radius: 50px"></div>
-    <div style="width: 366px; height: 510px; left: 980px; top: 1800px; position: absolute; background: #D9D9D9; border-radius: 50px"></div>
-    <div style="width: 366px; height: 510px; left: 124px; top: 1800px; position: absolute; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-      <img style="width: 366px; height: 510px; border-radius: 50px" src="https://via.placeholder.com/366x510" />
-    </div>
-    <div style="width: 481px; height: 123px; left: 480px; top: 2429px; position: absolute; color: #FFE8E1; font-size: 58px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">What I’m Reading</div>
-    <div style="width: 284px; height: 123px; left: 100px; top: 2516px; position: absolute; color: #FFE8E1; font-size: 40px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">Currently:</div>
-    <div style="width: 284px; height: 123px; left: 436px; top: 2516px; position: absolute; color: #FFE8E1; font-size: 40px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">Favorites:</div>
-    <div style="width: 366px; height: 510px; left: 552px; top: 1800px; position: absolute; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-      <img style="width: 366px; height: 510px; border-radius: 50px" src="https://via.placeholder.com/366x510" />
-    </div>
-    <img style="width: 148px; height: 224px; left: 1198px; top: 2661px; position: absolute" src="https://via.placeholder.com/148x224" />
-    <div style="width: 366px; height: 510px; left: 980px; top: 1800px; position: absolute; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-      <img style="width: 366px; height: 510px; border-radius: 50px" src="https://via.placeholder.com/366x510" />
-    </div>
-    <div style="width: 944px; height: 130px; padding-top: 14.90px; padding-left: 42px; padding-right: 25px; left: 68px; top: 925px; position: absolute; justify-content: flex-end; align-items: center; display: inline-flex">
-      <div style="width: 877px; height: 115.10px"><span style="color: white; font-size: 28px; font-family: Vollkorn; font-weight: 700; word-wrap: break-word">
-      Lifelong Learner: </span><span style="color: white; font-size: 28px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">I'm endlessly fascinated by the ever-evolving world of computer science and mathematics, diving into new areas to fuel my curiosity and growth.</span></div>
-    </div>
-    <div style="width: 395px; height: 385px; left: 1012px; top: 932px; position: absolute; background: linear-gradient(0deg, #FFE8E1 0%, #FFE8E1 100%), linear-gradient(180deg, rgba(149.46, 110.64, 119.19, 0.80) 0%, rgba(149.46, 110.64, 119.19, 0) 100%); border-radius: 9999px"></div>
-    <img style="width: 142px; height: 224px; left: 436px; top: 2661px; position: absolute" src="https://via.placeholder.com/142x224" />
-    <div style="width: 214px; height: 65px; left: 102px; top: 2905px; position: absolute"><span style="color: white; font-size: 20px; font-family: Vollkorn; font-style: italic; font-weight: 400; word-wrap: break-word">The Art of Statistics</span><span style="color: white; font-size: 20px; font-family: Vollkorn; font-weight: 700; word-wrap: break-word"> <br/></span><span style="color: white; font-size: 20px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">by David Spiegelhalter</span></div>
-    <img style="width: 490px; height: 105px; left: 872px; top: 3069px; position: absolute" src="https://via.placeholder.com/490x105" />
-    <div style="width: 973px; height: 65px; left: 442px; top: 2905px; position: absolute">
-      <div style="width: 214px; height: 65px; left: 243px; top: 0px; position: absolute"><span style="color: white; font-size: 20px; font-family: Vollkorn; font-style: italic; font-weight: 400; word-wrap: break-word">When Breath Becomes Air<br/></span><span style="color: white; font-size: 20px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">by Paul Kalanithi</span></div>
-      <div style="width: 973px; height: 65px; left: 0px; top: 0px; position: absolute">
-        <div style="width: 214px; height: 65px; left: 0px; top: 0px; position: absolute"><span style="color: white; font-size: 20px; font-family: Vollkorn; font-style: italic; font-weight: 400; word-wrap: break-word">Meditations<br/></span><span style="color: white; font-size: 20px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">by Marcus Aurelius</span></div>
-        <div style="width: 214px; height: 65px; left: 504px; top: 0px; position: absolute"><span style="color: white; font-size: 20px; font-family: Vollkorn; font-style: italic; font-weight: 400; word-wrap: break-word">The Moment of Lift<br/></span><span style="color: white; font-size: 20px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">by Melinda French Gates</span></div>
-        <div style="width: 214px; height: 65px; left: 759px; top: 0px; position: absolute"><span style="color: white; font-size: 20px; font-family: Vollkorn; font-style: italic; font-weight: 400; word-wrap: break-word">Atomic Habits<br/></span><span style="color: white; font-size: 20px; font-family: Vollkorn; font-weight: 400; word-wrap: break-word">by James Clear</span></div>
-      </div>
-    </div>
-    <img style="width: 142px; height: 224px; left: 100px; top: 2661px; position: absolute" src="https://via.placeholder.com/142x224" />
-    <img style="width: 150px; height: 224px; left: 685px; top: 2661px; position: absolute" src="https://via.placeholder.com/150x224" />
-    <img style="width: 148px; height: 224px; left: 942px; top: 2661px; position: absolute" src="https://via.placeholder.com/148x224" />
-    <div style="width: 395px; height: 385px; left: 1012px; top: 932px; position: absolute; background: linear-gradient(0deg, #FFE8E1 0%, #FFE8E1 100%), linear-gradient(0deg, #956F77 0%, #956F77 100%); border-radius: 9999px"></div>
-    <img style="width: 351px; height: 376px; left: 1029px; top: 941px; position: absolute" src="https://via.placeholder.com/351x376" />
-    <div style="width: 463px; height: 339px; left: 1034px; top: 129px; position: absolute; background: #FFE8E1; border-radius: 9999px"></div>
-    <img style="width: 80px; height: 80px; left: 1118px; top: 254px; position: absolute" src="https://via.placeholder.com/80x80" />
-    <img style="width: 80px; height: 80px; left: 1224px; top: 255px; position: absolute" src="https://via.placeholder.com/80x80" />
-  </div>
+
+    <footer>
+        <p>&copy; January 2024 Ellie Burton. All rights reserved.</p>
+    </footer>
+</body>
+</html>
