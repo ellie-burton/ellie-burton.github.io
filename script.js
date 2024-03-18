@@ -4,82 +4,93 @@ const projectList = [{
     skills: ["Python", "Spotify API", "Pandas", "Jupyter Notebook"],
     github: "https://github.com/username/spotify-analysis",
     image: "images/music.jpg"
-},
-{
+  },
+  {
     title: "Automations for Daily Life",
     description: "I used Python to automate my daily tasks, such as sending email reminders and downloading new music.",
     skills: ["Python", "Gmail API", "Spotipy", "Pandas"],
     github: "https://github.com/username/spotify-analysis",
     image: "images/automate.jpg"
-},
-{
+  },
+  {
     title: "Nebula Navigators",
     description: "At the 2024 AuburnHacks hackathon, I worked with a team to create a sandbox space simulation game where users can explore dynamically generated planets.",
     skills: ["Python", "Pygame", "Git"],
     github: "https://github.com/username/spotify-analysis",
     image: "images/space.jpg"
-},
-{
+  },
+  {
     title: "Color Matching Game",
     description: "This simple game generates a random color and challenges the user to find the matching color via RGB value sliders.",
     skills: ["Python", "Gmail API", "Spotipy", "Pandas"],
     github: "https://github.com/username/spotify-analysis",
     image: "images/color.jpg"
-},
-{
+  },
+  {
     title: "Happiness/ Gratitude Initiative",
     description: "I created a website to promote positivity and gratitude, and to help people find happiness in their daily lives.",
     skills: ["Python", "iOS Shortcuts", "Gmail API", "Pandas"],
     github: "https://github.com/username/spotify-analysis",
     image: "images/happy.jpg"
-},
-// Add more projects here...
+  }
+  // Add more projects here...
 ];
 
+const carouselInner = document.querySelector('.carousel-inner');
+const carouselIndicators = document.querySelector('.carousel-indicators');
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Smooth scrolling
-    const navLinks = document.querySelectorAll("nav ul li a");
+projectList.forEach((project, index) => {
+  const carouselItem = document.createElement('div');
+  carouselItem.classList.add('carousel-item');
+  if (index === 0) {
+    carouselItem.classList.add('active');
+  }
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", function(event) {
-            event.preventDefault();
+  const slideOverlay = document.createElement('div');
+  slideOverlay.classList.add('slide-overlay');
+  carouselItem.appendChild(slideOverlay);
 
-            const targetId = this.getAttribute("href").substring(1);
-            const targetSection = document.getElementById(targetId);
+  const img = document.createElement('img');
+  img.classList.add('d-block', 'w-100');
+  img.src = project.image;
+  img.alt = project.title;
+  carouselItem.appendChild(img);
 
-            window.scrollTo({
-                top: targetSection.offsetTop - 50, // Adjusted for header height
-                behavior: "smooth"
-            });
-        });
-    });
+  const caption = document.createElement('div');
+  caption.classList.add('carousel-caption', 'd-none', 'd-md-block');
 
-    function generatePaginationButtons() {
-        projectList.forEach((project, index) => {
-            const button = document.createElement('button');
-            button.textContent = index + 1;
-            button.addEventListener('click', () => showProject(project, index));
-            pagination.appendChild(button);
-        });
-    }
+  const title = document.createElement('h3');
+  title.textContent = project.title;
+  caption.appendChild(title);
 
-    function showProject(project, index) {
-        const projectDiv = document.getElementById('project');
-        //projectDiv.innerHTML = `<h3>${project.title}</h3><p>${project.description}</p>`;
-        
+  const description = document.createElement('p');
+  description.textContent = project.description;
+  caption.appendChild(description);
 
-        projectDiv.innerHTML = `<img src="${project.image}" alt="${project.title}" class="image">`;
-        projectDiv.innerHTML += `<div class="overlay-text">${project.title}</div><p>${project.description}</p>`;
-        projectDiv.innerHTML += `<p>Skills used: ${project.skills.join(', ')}</p>`;
-        projectDiv.innerHTML += `<a href="${project.github}" target="_blank">View on GitHub</a>`; 
-        var buttons = document.getElementsByTagName('button');
-        console.log(buttons);
-        const arr = Array.from(buttons);
-        arr.forEach(button => button.classList.remove('active'));
-        arr[index].classList.add('active');  
-    }
+  const skills = document.createElement('p');
+  skills.textContent = `Skills: ${project.skills.join(', ')}`;
+  caption.appendChild(skills);
 
-    generatePaginationButtons();
-    showProject(projectList[0], 0);
+  const githubLink = document.createElement('a');
+  githubLink.href = project.github;
+  githubLink.target = '_blank';
+  const githubLogo = document.createElement('img');
+  githubLogo.src = 'images/github.png'; // Path to your GitHub logo
+  githubLogo.alt = 'GitHub Logo';
+  githubLogo.style.width = '50px'; // Adjust the width of the GitHub logo here
+  githubLogo.style.height = 'auto'; // Maintain aspect ratio
+  githubLink.appendChild(githubLogo);
+  caption.appendChild(githubLink);
+
+  carouselItem.appendChild(caption);
+
+  carouselInner.appendChild(carouselItem);
+
+  const indicator = document.createElement('li');
+  indicator.setAttribute('data-target', '#carouselExampleIndicators');
+  indicator.setAttribute('data-slide-to', index.toString());
+  if (index === 0) {
+    indicator.classList.add('active');
+  }
+  carouselIndicators.appendChild(indicator);
 });
