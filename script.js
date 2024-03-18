@@ -1,96 +1,117 @@
 const projectList = [{
-    title: "AI Spotify Analysis",
-    description: "I used the Spotify API to analyze my music listening habits and create a playlist of my top songs.",
-    skills: ["Python", "Spotify API", "Pandas", "Jupyter Notebook"],
-    github: "https://github.com/username/spotify-analysis",
-    image: "images/music.jpg"
-  },
-  {
-    title: "Automations for Daily Life",
-    description: "I used Python to automate my daily tasks, such as sending email reminders and downloading new music.",
-    skills: ["Python", "Gmail API", "Spotipy", "Pandas"],
-    github: "https://github.com/username/spotify-analysis",
-    image: "images/automate.jpg"
-  },
-  {
-    title: "Nebula Navigators",
-    description: "At the 2024 AuburnHacks hackathon, I worked with a team to create a sandbox space simulation game where users can explore dynamically generated planets.",
-    skills: ["Python", "Pygame", "Git"],
-    github: "https://github.com/username/spotify-analysis",
-    image: "images/space.jpg"
-  },
-  {
-    title: "Color Matching Game",
-    description: "This simple game generates a random color and challenges the user to find the matching color via RGB value sliders.",
-    skills: ["Python", "Gmail API", "Spotipy", "Pandas"],
-    github: "https://github.com/username/spotify-analysis",
-    image: "images/color.jpg"
-  },
-  {
-    title: "Happiness/ Gratitude Initiative",
-    description: "I created a website to promote positivity and gratitude, and to help people find happiness in their daily lives.",
-    skills: ["Python", "iOS Shortcuts", "Gmail API", "Pandas"],
-    github: "https://github.com/username/spotify-analysis",
-    image: "images/happy.jpg"
-  }
-  // Add more projects here...
+  title: "AI Spotify Analysis",
+  description: "I used the Spotify API to analyze my music listening habits and create a playlist of my top songs.",
+  skills: ["Python", "Spotify API", "Pandas", "Jupyter Notebook"],
+  github: "https://github.com/username/spotify-analysis",
+  image: "images/music.jpg"
+},
+{
+  title: "Automations for Daily Life",
+  description: "I used Python to automate my daily tasks, such as sending email reminders and downloading new music.",
+  skills: ["Python", "Gmail API", "Spotipy", "Pandas"],
+  github: "https://github.com/username/spotify-analysis",
+  image: "images/automate.jpg"
+},
+{
+  title: "Nebula Navigators",
+  description: "At the 2024 AuburnHacks hackathon, I worked with a team to create a sandbox space simulation game where users can explore dynamically generated planets.",
+  skills: ["Python", "Pygame", "Git"],
+  github: "https://github.com/username/spotify-analysis",
+  image: "images/space.jpg"
+},
+{
+  title: "Color Matching Game",
+  description: "This simple game generates a random color and challenges the user to find the matching color via RGB value sliders.",
+  skills: ["Python", "Gmail API", "Spotipy", "Pandas"],
+  github: "https://github.com/username/spotify-analysis",
+  image: "images/color.jpg"
+},
+{
+  title: "Happiness/ Gratitude Initiative",
+  description: "I created a website to promote positivity and gratitude, and to help people find happiness in their daily lives.",
+  skills: ["Python", "iOS Shortcuts", "Gmail API", "Pandas"],
+  github: "https://github.com/username/spotify-analysis",
+  image: "images/happy.jpg"
+}
+// Add more projects here...
 ];
 
 const carouselInner = document.querySelector('.carousel-inner');
 const carouselIndicators = document.querySelector('.carousel-indicators');
 
 projectList.forEach((project, index) => {
-  const carouselItem = document.createElement('div');
-  carouselItem.classList.add('carousel-item');
-  if (index === 0) {
-    carouselItem.classList.add('active');
-  }
+const carouselItem = document.createElement('div');
+carouselItem.classList.add('carousel-item');
+if (index === 0) {
+  carouselItem.classList.add('active');
+}
 
-  const slideOverlay = document.createElement('div');
-  slideOverlay.classList.add('slide-overlay');
-  carouselItem.appendChild(slideOverlay);
+const slideOverlay = document.createElement('div');
+slideOverlay.classList.add('slide-overlay');
+carouselItem.appendChild(slideOverlay);
 
-  const img = document.createElement('img');
-  img.classList.add('d-block', 'w-100');
-  img.src = project.image;
-  img.alt = project.title;
-  carouselItem.appendChild(img);
+const img = document.createElement('img');
+img.classList.add('d-block', 'w-100');
+img.src = project.image;
+img.alt = project.title;
+carouselItem.appendChild(img);
 
-  const caption = document.createElement('div');
-  caption.classList.add('carousel-caption', 'd-none', 'd-md-block');
+const caption = document.createElement('div');
+caption.classList.add('carousel-caption', 'd-none', 'd-md-block');
 
-  const title = document.createElement('h3');
-  title.textContent = project.title;
-  caption.appendChild(title);
+const title = document.createElement('h3');
+title.textContent = project.title;
+caption.appendChild(title);
 
-  const description = document.createElement('p');
-  description.textContent = project.description;
-  caption.appendChild(description);
+const description = document.createElement('p');
+description.textContent = project.description;
+caption.appendChild(description);
 
-  const skills = document.createElement('p');
-  skills.textContent = `Skills: ${project.skills.join(', ')}`;
-  caption.appendChild(skills);
+const skills = document.createElement('p');
+skills.textContent = `Skills: ${project.skills.join(', ')}`;
+caption.appendChild(skills);
 
-  const githubLink = document.createElement('a');
-  githubLink.href = project.github;
-  githubLink.target = '_blank';
-  const githubLogo = document.createElement('img');
-  githubLogo.src = 'images/github.png'; // Path to your GitHub logo
-  githubLogo.alt = 'GitHub Logo';
-  githubLogo.style.width = '50px'; // Adjust the width of the GitHub logo here
-  githubLogo.style.height = 'auto'; // Maintain aspect ratio
-  githubLink.appendChild(githubLogo);
-  caption.appendChild(githubLink);
+const githubLink = document.createElement('a');
+githubLink.href = project.github;
+githubLink.target = '_blank';
+const githubLogo = document.createElement('img');
+githubLogo.src = 'images/github.png'; // Path to your GitHub logo
+githubLogo.alt = 'GitHub Logo';
+githubLogo.style.width = '50px'; // Adjust the width of the GitHub logo here
+githubLogo.style.height = 'auto'; // Maintain aspect ratio
+githubLink.appendChild(githubLogo);
+caption.appendChild(githubLink);
 
-  carouselItem.appendChild(caption);
+carouselItem.appendChild(caption);
 
-  carouselInner.appendChild(carouselItem);
+carouselInner.appendChild(carouselItem);
 
-  const indicator = document.createElement('li');
-  indicator.setAttribute('data-target', '#carouselExampleIndicators');
-  indicator.setAttribute('data-slide-to', index.toString());
-  if (index === 0) {
-    indicator.classList.add('active');
-  }
-  carouselIndicators.appendChild(indicator);
+const indicator = document.createElement('li');
+indicator.setAttribute('data-target', '#carouselExampleIndicators');
+indicator.setAttribute('data-slide-to', index.toString());
+if (index === 0) {
+  indicator.classList.add('active');
+}
+carouselIndicators.appendChild(indicator);
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('nav ul li a');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      const offsetTop = targetSection.offsetTop;
+      
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    });
+  });
+});
+
+
