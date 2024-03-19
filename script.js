@@ -118,14 +118,89 @@ document.addEventListener('DOMContentLoaded', function() {
 //BOOKS
 // List of book image URLs
 const ISBNS = ["9780812968255", "9781878424310", "9781250054050","9780143130727","9780241398630","9781982687267","9781473674783"];
-
-
+const BookList = [{
+  title: "Meditations",
+  author: "Marcus Aurelius",
+  rating: 9,
+  isbn: "9780812968255",
+  notes: "I really enjoyed this book. It was my first time reading a philosophy book and I found it very insightful."
+},
+{
+  title: "What I Know for Sure",
+  author: "Oprah Winfrey",
+  rating: 8,
+  isbn: "9781250054050",
+  notes: "I loved this book. It was a very easy read and I found Oprah's insights very inspiring."
+},
+{
+  title: "The Power of Now",
+  author: "Eckhart Tolle",
+  rating: 7,
+  isbn: "9781577314806",
+  notes: "I found this book very insightful. It was a bit heavy at times, but overall I enjoyed it."
+},
+{
+  title: "The Subtle Art of Not Giving a F*ck",
+  author: "Mark Manson",
+  rating: 8,
+  isbn: "9780062457714",
+  notes: "This book was a very easy read and I found it very insightful. I loved the author's sense of humor."
+},
+{
+  title: "Moonwalking with Einstein",
+  author: "Joshua Foer",
+  rating: 9,
+  isbn: "9780143130727",
+  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+},
+{
+  title: "Atomic Habits",
+  author: "James Clear",
+  rating: 9,
+  isbn: "9781847941831",
+  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+},
+{
+  title: "Outliers",
+  author: "Malcolm Gladwell",
+  rating: 8,
+  isbn: "9780141036250",
+  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+},
+{
+  title: "Outlive",
+  author: "Peter Attia",
+  rating: 9,
+  isbn: "9780008356744",
+  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+},
+{
+  title: "Man's Search for Meaning",
+  author: "Viktor E. Frankl",
+  rating: 9,
+  isbn: "9781846041242",
+  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+},
+];
 // Function to create a book element
-function createBook(isbn) {
+function createBook(data) {
   const book = document.createElement('div');
   book.classList.add('book');
-  const url = `url(https://covers.openlibrary.org/b/isbn/`+isbn+'-M.jpg)';
+  const url = `url(https://covers.openlibrary.org/b/isbn/`+data.isbn+'-L.jpg)';
+  //const link = `https://www.amazon.com/s?k=`+data.isbn;
   book.style.setProperty('--bg-image', `${url}`);
+
+  book.setAttribute('data-toggle', 'modal');
+  book.setAttribute('data-target', '#bookModal');
+
+  book.addEventListener('click', () => {
+    document.getElementById('bookModalTitle').textContent = data.title;
+    document.getElementById('bookModalAuthor').textContent += ' '+ data.author;
+    document.getElementById('bookModalRating').textContent += ' '+data.rating;
+    document.getElementById('bookModalNotes').textContent += ' '+data.notes;
+    document.getElementById('bookModalLink').href = `https://www.amazon.com/s?k=`+data.isbn;
+  });
+  
   return book;
 }
 
@@ -135,8 +210,8 @@ function appendBooks() {
   const booksContainer = document.createElement('div');
   booksContainer.classList.add('books');
 
-  ISBNS.forEach(isbn => {
-    const book = createBook(isbn);
+  BookList.forEach(bookItem => {
+    const book = createBook(bookItem);
     booksContainer.appendChild(book);
   });
 

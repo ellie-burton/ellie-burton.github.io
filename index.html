@@ -262,19 +262,44 @@
       <section id="books">
         <div class="main-content">
           <br/>
-        <h2 style="color:white">My Bookshelf</h2>
-        <p style="color:white; text-align:left">I love to read! Here are some of the books I have read recently. Click on the book cover to learn more about each book.</p>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>    
-        <div id="bookshelf">
+          <h2 style="color:white">My Bookshelf</h2>
+          <p style="color:white; text-align:left">I love to read! Here are some of the books I have read recently. Click on the book cover to learn more about each book.</p>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>    
+          <div id="bookshelf">
               <!-- Dynamically generated book covers will go here -->
-            </div>
           </div>
+        </div>
+
+          <!-- The Modal -->
+<div class="modal fade" id="bookModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title" id="bookModalTitle">Book Title</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p id="bookModalAuthor">Author: </p>
+        <p id="bookModalRating">My Rating: </p>
+        <p id="bookModalNotes">My Notes: </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <a type="button" class="btn btn-primary" id="bookModalLink">View on Amazon</a>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
         <br/>
+
       </section>
     </div>
   </div>
@@ -283,6 +308,7 @@
     <footer>
       <p>&copy; March 2024 Ellie Burton. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

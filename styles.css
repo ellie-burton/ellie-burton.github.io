@@ -111,6 +111,10 @@ footer {
 }
 
 /*BOOKSHELF*/
+#bookshelf {
+  overflow: visible;
+}
+
 .bookshelf {
   max-width: 1000px;
   width: 80%;
@@ -118,6 +122,7 @@ footer {
   justify-content: center;
   flex-shrink: 0;
   position: relative;
+  overflow: visible;
 }
 /* 
 .books {
@@ -128,6 +133,10 @@ footer {
   margin: auto;
 } */
 .books {
+
+  gap: 10%;
+  width: 100%;
+  margin: auto;  
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -143,15 +152,19 @@ footer {
   margin: 0 auto; 
 } */
 .book {
+
+  margin: 0 auto; 
+
   flex: 0 0 auto;
   scroll-snap-align: start;
-  margin-right: 10px; /* Adjust as needed */
+  margin-right: 5px; /* Adjust as needed */
+  margin-left: 5px;
   width: 100%;
-  border-radius: 3px;
+  border-radius: 5px;
   aspect-ratio: 115 / 180;
   position: relative;
   overflow: visible;
-  width: 200px; /* Set a fixed width for each book */
+  width: 150px; /* Set a fixed width for each book */
 }
 
 @media (max-width: 768px) {
