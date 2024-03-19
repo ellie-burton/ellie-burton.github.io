@@ -115,3 +115,33 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+//BOOKS
+// List of book image URLs
+const ISBNS = ["9780812968255", "9781878424310", "9781250054050","9780143130727","9780241398630","9781982687267","9781473674783"];
+
+
+// Function to create a book element
+function createBook(isbn) {
+  const book = document.createElement('div');
+  book.classList.add('book');
+  const url = `url(https://covers.openlibrary.org/b/isbn/`+isbn+'-M.jpg)';
+  book.style.setProperty('--bg-image', `${url}`);
+  return book;
+}
+
+// Function to append books to the bookshelf
+function appendBooks() {
+  const bookshelf = document.getElementById('bookshelf');
+  const booksContainer = document.createElement('div');
+  booksContainer.classList.add('books');
+
+  ISBNS.forEach(isbn => {
+    const book = createBook(isbn);
+    booksContainer.appendChild(book);
+  });
+
+  bookshelf.appendChild(booksContainer);
+}
+
+// Append books when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', appendBooks);
