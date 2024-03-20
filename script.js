@@ -171,7 +171,7 @@ const BookList = [{
   title: "Outlive",
   author: "Peter Attia",
   rating: 9,
-  isbn: "9780008356744",
+  isbn: "9780593236598",
   notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
 },
 {
@@ -195,9 +195,9 @@ function createBook(data) {
 
   book.addEventListener('click', () => {
     document.getElementById('bookModalTitle').textContent = data.title;
-    document.getElementById('bookModalAuthor').textContent += ' '+ data.author;
-    document.getElementById('bookModalRating').textContent += ' '+data.rating;
-    document.getElementById('bookModalNotes').textContent += ' '+data.notes;
+    document.getElementById('bookModalAuthor').textContent = 'Author: '+ data.author;
+    document.getElementById('bookModalRating').textContent = 'My Rating: '+data.rating;
+    document.getElementById('bookModalNotes').textContent = 'My Notes '+data.notes;
     document.getElementById('bookModalLink').href = `https://www.amazon.com/s?k=`+data.isbn;
   });
   
@@ -220,3 +220,7 @@ function appendBooks() {
 
 // Append books when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', appendBooks);
+
+$("bookshelf").mCustomScrollbar({
+  theme: "rounded-dots-dark"
+});
