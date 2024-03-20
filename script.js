@@ -117,70 +117,76 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //BOOKS
 // List of book image URLs
-const ISBNS = ["9780812968255", "9781878424310", "9781250054050","9780143130727","9780241398630","9781982687267","9781473674783"];
 const BookList = [{
   title: "Meditations",
   author: "Marcus Aurelius",
-  rating: 9,
+  rating: 5,
   isbn: "9780812968255",
   notes: "I really enjoyed this book. It was my first time reading a philosophy book and I found it very insightful."
 },
 {
   title: "What I Know for Sure",
   author: "Oprah Winfrey",
-  rating: 8,
+  rating: 4,
   isbn: "9781250054050",
   notes: "I loved this book. It was a very easy read and I found Oprah's insights very inspiring."
 },
 {
   title: "The Power of Now",
   author: "Eckhart Tolle",
-  rating: 7,
+  rating: 4,
   isbn: "9781577314806",
   notes: "I found this book very insightful. It was a bit heavy at times, but overall I enjoyed it."
 },
 {
   title: "The Subtle Art of Not Giving a F*ck",
   author: "Mark Manson",
-  rating: 8,
+  rating: 4,
   isbn: "9780062457714",
   notes: "This book was a very easy read and I found it very insightful. I loved the author's sense of humor."
 },
 {
   title: "Moonwalking with Einstein",
   author: "Joshua Foer",
-  rating: 9,
-  isbn: "9780143130727",
+  rating: 3,
+  isbn: "9780143120537",
   notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
 },
 {
   title: "Atomic Habits",
   author: "James Clear",
-  rating: 9,
+  rating: 5,
   isbn: "9781847941831",
   notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
 },
 {
   title: "Outliers",
   author: "Malcolm Gladwell",
-  rating: 8,
+  rating: 4,
   isbn: "9780141036250",
   notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
 },
 {
   title: "Outlive",
   author: "Peter Attia",
-  rating: 9,
+  rating: 5,
   isbn: "9780593236598",
   notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
 },
 {
   title: "Man's Search for Meaning",
   author: "Viktor E. Frankl",
-  rating: 9,
+  rating: 4,
   isbn: "9781846041242",
   notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
 },
+{
+  title:"Ikigai",
+  author: "Héctor García",
+  rating: 5,
+  isbn: "9780143130727",
+  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+}
 ];
 // Function to create a book element
 function createBook(data) {
@@ -195,9 +201,12 @@ function createBook(data) {
 
   book.addEventListener('click', () => {
     document.getElementById('bookModalTitle').textContent = data.title;
-    document.getElementById('bookModalAuthor').textContent = 'Author: '+ data.author;
-    document.getElementById('bookModalRating').textContent = 'My Rating: '+data.rating;
-    document.getElementById('bookModalNotes').textContent = 'My Notes '+data.notes;
+    document.getElementById('bookModalAuthor').textContent = 'by '+ data.author;
+    document.getElementById('bookModalRating').textContent = '';
+    for (let i = 0; i < data.rating; i++) {
+      document.getElementById('bookModalRating').textContent+='⭐';
+    }
+    document.getElementById('bookModalNotes').textContent = 'My Notes: '+data.notes;
     document.getElementById('bookModalLink').href = `https://www.amazon.com/s?k=`+data.isbn;
   });
   
@@ -214,13 +223,10 @@ function appendBooks() {
     const book = createBook(bookItem);
     booksContainer.appendChild(book);
   });
-
+  
+  booksContainer.setAttribute('id', 'style-3');
   bookshelf.appendChild(booksContainer);
 }
 
 // Append books when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', appendBooks);
-
-$("bookshelf").mCustomScrollbar({
-  theme: "rounded-dots-dark"
-});
