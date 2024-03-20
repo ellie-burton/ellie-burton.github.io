@@ -41,7 +41,7 @@ h2{
 .main-content {
     display: flex;
     flex-direction: column;
-    max-width: 80%; /* Adjust the max-width as needed */
+    max-width: 70%; /* Adjust the max-width as needed */
     margin: 0 auto;
 }
 .carousel{

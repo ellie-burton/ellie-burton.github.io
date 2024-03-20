@@ -219,6 +219,9 @@ function appendBooks() {
   const booksContainer = document.createElement('div');
   booksContainer.classList.add('books');
 
+  //sort Books by title
+  BookList.sort((a, b) => (a.title > b.title) ? 1 : -1);
+
   BookList.forEach(bookItem => {
     const book = createBook(bookItem);
     booksContainer.appendChild(book);
@@ -230,3 +233,4 @@ function appendBooks() {
 
 // Append books when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', appendBooks);
+
