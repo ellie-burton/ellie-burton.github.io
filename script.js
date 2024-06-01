@@ -156,7 +156,7 @@ const BookList = [{
   title: "Atomic Habits",
   author: "James Clear",
   rating: 5,
-  isbn: "9781847941831",
+  isbn: "9780735211292",
   notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
 },
 {
