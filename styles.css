@@ -233,33 +233,68 @@ background-color: #333;
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-nav .navbar-brand, nav .navbar-nav {
-  width: 100%;
-  text-align: center;
+  nav .navbar-brand, nav .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .main-content {
+    padding: 10px;
+    max-width: 100%; /* Make elements span full width */
+  }
+
+  .carousel-inner img {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-bar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+
+  .headshot {
+    width: 150px;
+    height: 150px;
+  }
+
+  .book {
+    width: calc(45% - 10px);
+    height: auto;
+  }
+
+  /* Desktop header changes for mobile */
+  .desktop-header {
+    display: none; /* Hide header with headshot and name PNGs */
+  }
+
+  /* Mobile header styles */
+  .mobile-header {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    background-color:rgb(156, 132, 129);
+  }
+
+  /* Project carousel adjustments for mobile */
+  .carousel {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .carousel-item {
+    text-align: center;
+  }
+
+  .carousel-caption {
+    display: block;
+  }
 }
 
-.main-content {
-  padding: 10px;
-}
-
-.carousel-inner img {
-  width: 100%;
-  height: auto;
-}
-
-.contact-bar {
-  width: 100%;
-  height: auto;
-  position: static;
-}
-
-.headshot {
-  width: 150px;
-  height: 150px;
-}
-
-.book {
-  width: calc(45% - 10px);
-  height: auto;
-}
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .mobile-header {
+    display: none; /* Hide mobile header on desktop */
+  }
 }
