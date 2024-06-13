@@ -98,21 +98,33 @@ carouselIndicators.appendChild(indicator);
 
 document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelectorAll('nav ul li a');
-  
+
   navLinks.forEach(link => {
     link.addEventListener('click', function(event) {
+      const href = this.getAttribute('href');
+      if (href.startsWith('http') || href.startsWith('mailto') || href.endsWith('.pdf')) {
+        // Do not prevent default for external links
+        return;
+      }
+
       event.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
+      const targetId = href.substring(1);
       const targetSection = document.getElementById(targetId);
-      const offsetTop = targetSection.offsetTop;
-      
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
+
+      if (targetSection) {
+        const offsetTop = targetSection.offsetTop;
+
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      } else {
+      }
     });
   });
 });
+
+
 
 
 //BOOKS
