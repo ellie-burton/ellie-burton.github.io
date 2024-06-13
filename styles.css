@@ -263,6 +263,21 @@ background-color: #333;
     width: calc(45% - 10px);
     height: auto;
   }
+  #about {
+    background-color: white; /* Light cyan background */
+    padding: 20px;
+    margin-top: 100px;
+  }
+  #research{
+    width: 100%;
+  }
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .col{
+    width: 100%;
+  }
 
   /* Desktop header changes for mobile */
   .desktop-header {
@@ -271,6 +286,8 @@ background-color: #333;
 
   /* Mobile header styles */
   .mobile-header {
+    width: 100%;
+    font-size: large;
     display: block;
     text-align: center;
     padding: 20px;
