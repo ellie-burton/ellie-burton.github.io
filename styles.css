@@ -13,7 +13,7 @@ text-align: left;
 .main-content {
   display: flex;
   flex-direction: column;
-  max-width: 70%; /* Adjust the max-width as needed */
+  max-width: 80%; /* Adjust the max-width as needed */
   margin: 0 auto;
   padding: 20px; /* Added padding for better spacing */
 }
@@ -53,6 +53,18 @@ padding: 50px;
 width: 80%;
 background-color: rgb(156, 132, 129);
 }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 50px;  /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  background-size: 50px 50px; /* Ensure the background size matches the icon size */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;  /* Allow the control areas to fit the new icon sizes */
+}
+
 
 .contact-bar {
   background-color: #956F77; /* Adjust the color as needed */
@@ -278,6 +290,30 @@ background-color: #333;
   .col{
     width: 100%;
   }
+  /* Project carousel adjustments for mobile */
+  #projects {
+    padding: 20px;
+    width: 100%;
+  }
+  .main-content {
+    padding: 10px;
+    max-width: 100%; /* Make elements span full width */
+  }
+  .carousel {
+    padding: 20px;
+    width: 100%;
+  }
+  .carousel slide{
+    width: 100%;
+  }
+  .carousel-inner img {
+    width: 100%;
+    height: auto;
+  } 
+  .carousel-item {
+    text-align: center;
+    width: 100%;
+  }
 
   /* Desktop header changes for mobile */
   .desktop-header {
@@ -315,3 +351,56 @@ background-color: #333;
     display: none; /* Hide mobile header on desktop */
   }
 }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 50px;  /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  background-size: 50px 50px; /* Ensure the background size matches the icon size */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 50px;  /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  background-size: 50px 50px; /* Ensure the background size matches the icon size */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;  /* Allow the control areas to fit the new icon sizes */
+}
+
+/* Custom styles for text box */
+.carousel-item .text-content {
+  display: block; /* Ensure text content is always visible */
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .carousel-item .image-content {
+    display: none; /* Hide image content on mobile */
+  }
+  .carousel-item .text-content {
+    position: static;
+    background-color: rga(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 10px;
+  }
+  .carousel-item .text-content img {
+    color: black;
+  }
+  .carousel-item .text-content h5 {
+    font-weight: semibold;
+    font-size: 25px;
+  }
+}
+

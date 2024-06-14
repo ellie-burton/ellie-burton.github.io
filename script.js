@@ -1,8 +1,8 @@
 const projectList = [{
-  title: "AI Spotify Analysis",
-  description: "I used the Spotify API to analyze my music listening habits and create a playlist of my top songs.",
-  skills: ["Python", "Spotify API", "Pandas", "Jupyter Notebook"],
-  github: "https://github.com/username/spotify-analysis",
+  title: "PlaylistPainter",
+  description: "PlaylistPainter is a web application that transforms your Spotify playlists into beautiful, AI-generated album covers. By leveraging advanced AI models and seamless Spotify integration, it creates stunning visual representations of your music taste. Users can generate unique images from any Spotify playlist URL, view their playlist songs in a sleek layout, and download the created images. ",
+  skills: ["Python", "Spotify API", "Spotipy","HuggingFace", "Pillow","Heroku"],
+  github: "https://github.com/ellie-burton/spotify-img",
   image: "images/music.jpg"
 },
 {
@@ -40,60 +40,59 @@ const carouselInner = document.querySelector('.carousel-inner');
 const carouselIndicators = document.querySelector('.carousel-indicators');
 
 projectList.forEach((project, index) => {
-const carouselItem = document.createElement('div');
-carouselItem.classList.add('carousel-item');
-if (index === 0) {
-  carouselItem.classList.add('active');
-}
+  const carouselItem = document.createElement('div');
+  carouselItem.classList.add('carousel-item');
+  if (index === 0) {
+    carouselItem.classList.add('active');
+  }
 
-const slideOverlay = document.createElement('div');
-slideOverlay.classList.add('slide-overlay');
-carouselItem.appendChild(slideOverlay);
+  const imageContent = document.createElement('div');
+  imageContent.classList.add('image-content');
+  const img = document.createElement('img');
+  img.classList.add('d-block', 'w-100');
+  img.src = project.image;
+  img.alt = project.title;
+  imageContent.appendChild(img);
+  carouselItem.appendChild(imageContent);
 
-const img = document.createElement('img');
-img.classList.add('d-block', 'w-100');
-img.src = project.image;
-img.alt = project.title;
-carouselItem.appendChild(img);
+  const textContent = document.createElement('div');
+  textContent.classList.add('text-content');
+  const title = document.createElement('h5');
+  title.textContent = project.title;
+  textContent.appendChild(title);
 
-const caption = document.createElement('div');
-caption.classList.add('carousel-caption', 'd-none', 'd-md-block');
+  const description = document.createElement('p');
+  description.textContent = project.description;
+  textContent.appendChild(description);
 
-const title = document.createElement('h3');
-title.textContent = project.title;
-caption.appendChild(title);
+  const skills = document.createElement('p');
+  skills.textContent = `Skills: ${project.skills.join(', ')}`;
+  textContent.appendChild(skills);
 
-const description = document.createElement('p');
-description.textContent = project.description;
-caption.appendChild(description);
+  const githubLink = document.createElement('a');
+  githubLink.href = project.github;
+  githubLink.target = '_blank';
+  const githubLogo = document.createElement('img');
+  githubLogo.src = 'images/github.png'; // Path to your GitHub logo
+  githubLogo.alt = 'GitHub Logo';
+  githubLogo.style.width = '50px'; // Adjust the width of the GitHub logo here
+  githubLogo.style.height = 'auto'; // Maintain aspect ratio
+  githubLink.appendChild(githubLogo);
+  textContent.appendChild(githubLink);
 
-const skills = document.createElement('p');
-skills.textContent = `Skills: ${project.skills.join(', ')}`;
-caption.appendChild(skills);
+  carouselItem.appendChild(textContent);
 
-const githubLink = document.createElement('a');
-githubLink.href = project.github;
-githubLink.target = '_blank';
-const githubLogo = document.createElement('img');
-githubLogo.src = 'images/github.png'; // Path to your GitHub logo
-githubLogo.alt = 'GitHub Logo';
-githubLogo.style.width = '50px'; // Adjust the width of the GitHub logo here
-githubLogo.style.height = 'auto'; // Maintain aspect ratio
-githubLink.appendChild(githubLogo);
-caption.appendChild(githubLink);
+  carouselInner.appendChild(carouselItem);
 
-carouselItem.appendChild(caption);
-
-carouselInner.appendChild(carouselItem);
-
-const indicator = document.createElement('li');
-indicator.setAttribute('data-target', '#carouselExampleIndicators');
-indicator.setAttribute('data-slide-to', index.toString());
-if (index === 0) {
-  indicator.classList.add('active');
-}
-carouselIndicators.appendChild(indicator);
+  const indicator = document.createElement('li');
+  indicator.setAttribute('data-target', '#carouselExampleIndicators');
+  indicator.setAttribute('data-slide-to', index.toString());
+  if (index === 0) {
+    indicator.classList.add('active');
+  }
+  carouselIndicators.appendChild(indicator);
 });
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -119,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
           behavior: 'smooth'
         });
       } else {
+        console.warn(`Element with ID '${targetId}' not found.`);
       }
     });
   });
