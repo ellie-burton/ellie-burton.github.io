@@ -3,33 +3,49 @@ const projectList = [{
   description: "PlaylistPainter is a web application that transforms your Spotify playlists into beautiful, AI-generated album covers. By leveraging advanced AI models and seamless Spotify integration, it creates stunning visual representations of your music taste. Users can generate unique images from any Spotify playlist URL, view their playlist songs in a sleek layout, and download the created images. ",
   skills: ["Python", "Spotify API", "Spotipy","HuggingFace", "Pillow","Heroku"],
   github: "https://github.com/ellie-burton/spotify-img",
+  link: "https://spotify-img-bcf4303e41dc.herokuapp.com/",
   image: "images/music.jpg"
 },
 {
+  title: "Personal Website",
+  description: "I created this personal website using HTML, CSS, and JavaScript. It's a simple website that showcases my skills and projects.",
+  skills: ["HTML", "CSS", "JavaScript", "Git","Bootstrap"],
+  github: "https://github.com/ellie-burton.github.io",
+  link: "https://ellie-burton.github.io",
+  image: "images/computer.jpg"
+},
+{
   title: "Automations for Daily Life",
-  description: "I used Python to automate my daily tasks, such as sending email reminders and downloading new music.",
-  skills: ["Python", "Gmail API", "Spotipy", "Pandas"],
-  github: "https://github.com/username/spotify-analysis",
+  description: "I used Python to automate my daily tasks and routines. I also created an automated weekly email that summarizes my weekly goals, things I was grateful for the past week, and 5 random photos from the week.",
+  skills: ["Python", "Gmail API", "iOS Shortcuts", "NFC Tags","Google Photos API"],
+  github: "https://github.com/ellie-burton/automations",
   image: "images/automate.jpg"
 },
 {
   title: "Nebula Navigators",
   description: "At the 2024 AuburnHacks hackathon, I worked with a team to create a sandbox space simulation game where users can explore dynamically generated planets.",
   skills: ["Python", "Pygame", "Git"],
-  github: "https://github.com/username/spotify-analysis",
+  github: "https://github.com/ahconnors/Nebula-Navigators",
   image: "images/space.jpg"
 },
 {
   title: "Color Matching Game",
   description: "This simple game generates a random color and challenges the user to find the matching color via RGB value sliders.",
   skills: ["Python", "Gmail API", "Spotipy", "Pandas"],
-  github: "https://github.com/username/spotify-analysis",
+  github: "https://github.com/ellie-burton/ColorMatchGame",
   image: "images/color.jpg"
 },
 {
   title: "Happiness/ Gratitude Initiative",
   description: "I created a website to promote positivity and gratitude, and to help people find happiness in their daily lives.",
   skills: ["Python", "iOS Shortcuts", "Gmail API", "Pandas"],
+  github: "https://github.com/username/spotify-analysis",
+  image: "images/happy.jpg"
+},
+{
+  title: "Belize Conch Population Analysis",
+  description: "I analyzed the population of the Belize Conch population on a study abroad trip. The data was then used to create a visualization that showed changes in the population over time.",
+  skills: ["Python", "Pandas", "Matplotlib", "Pandas"],
   github: "https://github.com/username/spotify-analysis",
   image: "images/happy.jpg"
 }
@@ -79,6 +95,20 @@ projectList.forEach((project, index) => {
   githubLogo.style.height = 'auto'; // Maintain aspect ratio
   githubLink.appendChild(githubLogo);
   textContent.appendChild(githubLink);
+  //if link exists
+  if (project.link) {
+    const projectLink = document.createElement('a');
+    projectLink.href = project.link;
+    projectLink.target = '_blank';
+    const linkLogo = document.createElement('img');
+    linkLogo.src = 'images/link.png'; // Path to your GitHub logo
+    linkLogo.alt = 'Link Logo';
+    linkLogo.style.width = '50px'; // Adjust the width of the GitHub logo here
+    linkLogo.style.height = 'auto'; // Maintain aspect ratio
+    projectLink.appendChild(linkLogo);
+
+    textContent.appendChild(projectLink);
+  }
 
   carouselItem.appendChild(textContent);
 
@@ -148,56 +178,56 @@ const BookList = [{
   author: "Eckhart Tolle",
   rating: 4,
   isbn: "9781577314806",
-  notes: "I found this book very insightful. It was a bit heavy at times, but overall I enjoyed it."
+  notes: "I found this book very intersting. It was a bit heavy at times, but overall I enjoyed it."
 },
 {
   title: "The Subtle Art of Not Giving a F*ck",
   author: "Mark Manson",
   rating: 4,
   isbn: "9780062457714",
-  notes: "This book was a very easy read and I found it very insightful. I loved the author's sense of humor."
+  notes: "This book was a very easy read and I found it very insightful about the modern world's take on stoicism. I loved the author's sense of humor."
 },
 {
   title: "Moonwalking with Einstein",
   author: "Joshua Foer",
   rating: 3,
   isbn: "9780143120537",
-  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+  notes: "This book was very informative on memory and how it can be best utilized. I found it motivating to treat memory as an important skill to continualy exercise."
 },
 {
   title: "Atomic Habits",
   author: "James Clear",
   rating: 5,
   isbn: "9780735211292",
-  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+  notes: "I loved this book. I base many of my habits on it. Specifically, I enjoy utilizing habit stacking and '1% better everyday' in my daily life."
 },
 {
   title: "Outliers",
   author: "Malcolm Gladwell",
   rating: 4,
   isbn: "9780141036250",
-  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+  notes: "This book had an interesting viewpoint on success and how it can be achieved. I found it to be a unique perspective that broadened my view."
 },
 {
   title: "Outlive",
   author: "Peter Attia",
-  rating: 5,
+  rating: 3,
   isbn: "9780593236598",
-  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+  notes: "This book was a bit heavy at times, but overall I enjoyed it. I found it to be a very informative book on health and how it can be best utilized."
 },
 {
   title: "Man's Search for Meaning",
   author: "Viktor E. Frankl",
   rating: 4,
   isbn: "9781846041242",
-  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+  notes: "This book was incredibly inspiring. It gave a great perspective on the purpose of life and finding personal meaning."
 },
 {
   title:"Ikigai",
   author: "Héctor García",
   rating: 5,
   isbn: "9780143130727",
-  notes: "I loved this book. It was a very easy read and I found the author's insights very inspiring."
+  notes: "This book gave amazing insights on 'blue zones' and how many people achieve great longevity."
 }
 ];
 // Function to create a book element
