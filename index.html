@@ -15,22 +15,15 @@
     <title>Ellie Burton - Portfolio</title>
   </head>
   <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="navbarTop" style="color: rgb(156, 132, 129);">
-      <div class="container-fluid">
+    <!-- Existing Navbar content -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="navbarTop" style="color: rgb(156, 132, 129);">
+  <div class="container-fluid">
     <div class="row w-100">
       <div class="col-6 d-flex align-items-center">
         <a class="navbar-brand" style='font-size: xx-large' href="#">Ellie Burton</a>
       </div>
       <div class="col-3 d-flex justify-content-end align-items-center">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
@@ -49,10 +42,12 @@
             <li class="nav-item">
               <a class="nav-link" href="#books">Bookshelf</a>
             </li>
+            <!-- New Art Section Link -->
+            <li class="nav-item">
+              <a class="nav-link" href="#art">Art</a>
+            </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Contact
-              </a>
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="mailto:aeburton3@crimson.ua.edu">Email</a>
                 <a class="dropdown-item" href="resume.pdf">Resume</a>
@@ -68,9 +63,8 @@
       </div>
     </div>
   </div>
+</nav>
 
-      
-    </nav>
 
     <!-- Desktop header with headshot and name PNGs -->
     <div class="desktop-header">
@@ -170,21 +164,203 @@
       <div class="main-content">
         <section>
           <h2>Bookshelf</h2>
-          <p>I love to read! Here are some of the books I have read recently. Click on the book cover to learn more about each book. (Not yet available on moble viewing.)</p>
+          <p>I love to read! Here are some of the books I have read recently. Click on the book cover to learn more about each book.</p>
           <div id="bookshelf">
             <!-- Dynamically generated book covers will go here -->
           </div>
         </section>
       </div>
     </div>
+  
+    <!-- Book Modal -->
+    <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="bookModalTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bookModalTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="bookModalAuthor"></p>
+            <p id="bookModalRating"></p>
+            <p id="bookModalNotes"></p>
+          </div>
+          <div class="modal-footer">
+            <a id="bookModalLink" href="#" target="_blank" class="btn btn-primary">Buy on Amazon</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Existing sections -->
+<div class="section full-width" id="art">
+  <div class="main-content">
+    <section>
+      <h2>Art</h2>
+      <p>I have lots of artistic hobbies and love to create!</p>
+      <div id="artGallery">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/block.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Block Printing</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/candles.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Painted Candles</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/chess.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Resin Chess Set</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/clayboot.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Clay Cowgirl Boot</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/clayface.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Clay Face</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/dogprint.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Boxer Stamp</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/hummingbird.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Hummingbird Stained Glass</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/macrame.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Macrame Plant Hanger</h5>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/phone.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">DIY Phone Case</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/print.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Stamp Print</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/print2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Stamp Print</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class = "card" style="width: 12rem;">
+              <img src="images/art/print3.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Stamp Print</h5>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <div class = "card" style="width: 12rem;">
+                <img src="images/art/scrapbook.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Scrapbook</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class = "card" style="width: 12rem;">
+                <img src="images/art/snailmail.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Snail Mail</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class = "card" style="width: 12rem;">
+                <img src="images/art/stainedglass.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Stained Glass</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class = "card" style="width: 12rem;">
+                <img src="images/art/watercolor.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Watercolor</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <div class = "card" style="width: 12rem;">
+                <img src="images/art/watercolor2.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Watercolor</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+    </section>
+  </div>
+</div>
 
+
+
+  
     <footer>
       <p>&copy; June 2024 Ellie Burton. All rights reserved.</p>
     </footer>
-
+  
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxh4U9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
-</html>
+  </html>

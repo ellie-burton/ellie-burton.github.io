@@ -201,46 +201,81 @@ const BookList = [{
 }
 ];
 // Function to create a book element
-function createBook(data) {
-  const book = document.createElement('div');
-  book.classList.add('book');
-  const url = `url(https://covers.openlibrary.org/b/isbn/`+data.isbn+'-L.jpg)';
-  //const link = `https://www.amazon.com/s?k=`+data.isbn;
-  book.style.setProperty('--bg-image', `${url}`);
+function createBookElement(bookData) {
+  const bookElement = document.createElement('div');
+  bookElement.classList.add('book');
+  bookElement.style.setProperty('--bg-image', `url(https://covers.openlibrary.org/b/isbn/${bookData.isbn}-L.jpg)`);
 
-  book.setAttribute('data-toggle', 'modal');
-  book.setAttribute('data-target', '#bookModal');
+  bookElement.setAttribute('data-toggle', 'modal');
+  bookElement.setAttribute('data-target', '#bookModal');
 
-  book.addEventListener('click', () => {
-    document.getElementById('bookModalTitle').textContent = data.title;
-    document.getElementById('bookModalAuthor').textContent = 'by '+ data.author;
-    document.getElementById('bookModalRating').textContent = '';
-    for (let i = 0; i < data.rating; i++) {
-      document.getElementById('bookModalRating').textContent+='⭐';
-    }
-    document.getElementById('bookModalNotes').textContent = 'My Notes: '+data.notes;
-    document.getElementById('bookModalLink').href = `https://www.amazon.com/s?k=`+data.isbn;
+  bookElement.addEventListener('click', () => {
+    populateBookModal(bookData);
   });
   
-  return book;
+  return bookElement;
 }
 
-// Function to append books to the bookshelf
+function populateBookModal(bookData) {
+  const modalTitle = document.getElementById('bookModalTitle');
+  const modalAuthor = document.getElementById('bookModalAuthor');
+  const modalRating = document.getElementById('bookModalRating');
+  const modalNotes = document.getElementById('bookModalNotes');
+  const modalLink = document.getElementById('bookModalLink');
+
+  modalTitle.textContent = bookData.title;
+  modalAuthor.textContent = `by ${bookData.author}`;
+  modalRating.textContent = Array(bookData.rating).join('⭐');
+  modalNotes.textContent = `My Notes: ${bookData.notes}`;
+  modalLink.href = `https://www.amazon.com/s?k=${bookData.isbn}`;
+}
+
+
 function appendBooks() {
-  const bookshelf = document.getElementById('bookshelf');
+  const container = document.getElementById('bookshelf');
   const booksContainer = document.createElement('div');
   booksContainer.classList.add('books');
 
-  //sort Books by title
-  BookList.sort((a, b) => (a.title > b.title) ? 1 : -1);
+  BookList.sort((a, b) => a.title.localeCompare(b.title));
 
-  BookList.forEach(bookItem => {
-    const book = createBook(bookItem);
-    booksContainer.appendChild(book);
+  BookList.forEach(book => {
+    const bookElement = createBookElement(book);
+    booksContainer.appendChild(bookElement);
   });
-  
-  booksContainer.setAttribute('id', 'style-3');
-  bookshelf.appendChild(booksContainer);
+
+  booksContainer.id = 'style-3';
+  container.appendChild(booksContainer);
+}
+
+function createBookElement(book) {
+  const bookElement = document.createElement('div');
+  bookElement.classList.add('book');
+
+  const imageUrl = `url(https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg)`;
+  bookElement.style.setProperty('--bg-image', imageUrl);
+
+  bookElement.setAttribute('data-toggle', 'modal');
+  bookElement.setAttribute('data-target', '#bookModal');
+
+  bookElement.addEventListener('click', () => {
+    populateBookModal(book);
+  });
+
+  return bookElement;
+}
+
+function populateBookModal(book) {
+  const titleElement = document.getElementById('bookModalTitle');
+  const authorElement = document.getElementById('bookModalAuthor');
+  const ratingElement = document.getElementById('bookModalRating');
+  const notesElement = document.getElementById('bookModalNotes');
+  const linkElement = document.getElementById('bookModalLink');
+
+  titleElement.textContent = book.title;
+  authorElement.textContent = `by ${book.author}`;
+  ratingElement.textContent = Array(book.rating).join('⭐');
+  notesElement.textContent = `My Notes: ${book.notes}`;
+  linkElement.href = `https://www.amazon.com/s?k=${book.isbn}`;
 }
 
 // Append books when the DOM content is loaded
