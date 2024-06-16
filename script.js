@@ -16,7 +16,7 @@ const projectList = [{
 },
 {
   title: "Automations for Daily Life",
-  description: "I used Python to automate my daily tasks and routines. I also created an automated weekly email that summarizes my weekly goals, things I was grateful for the past week, and 5 random photos from the week.",
+  description:'This automation process helps you log moments of gratitude and happiness through a convenient widget on your iPhone and receive a weekly recap email summarizing these moments along with five random photos from your Google Photos. The system is designed to streamline the process of tracking positive moments and reflecting on them weekly, enhancing your mindfulness and well-being.',
   skills: ["Python", "Gmail API", "iOS Shortcuts", "NFC Tags","Google Photos API"],
   github: "https://github.com/ellie-burton/automations",
   image: "images/automate.jpg"
