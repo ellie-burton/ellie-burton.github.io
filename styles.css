@@ -53,6 +53,13 @@ text-align: left;
   padding: 20px;
 }
 
+#art {
+  background-color: white;
+}
+.card {
+  margin-bottom: 20px;
+}
+
 #books {
   background-color: rgb(156, 132, 129); /* Light purple background */
   color: white;
@@ -331,7 +338,14 @@ background-color: #333;
     text-align: center;
     width: 100%;
   }
-
+  #art{
+    /*margin on bottom of cards*/
+    margin-bottom: 20px;
+  }
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
   /* Desktop header changes for mobile */
   .desktop-header {
     display: none; /* Hide header with headshot and name PNGs */
