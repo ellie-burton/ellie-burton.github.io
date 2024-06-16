@@ -8,7 +8,7 @@ const projectList = [{
 },
 {
   title: "Personal Website",
-  description: "I created this personal website using HTML, CSS, and JavaScript. It's a simple website that showcases my skills and projects.",
+  description: "I created this personal website to showcases my skills and projects. It was an incredible learning experience, as well as a creative exercise. I loved the process of creating a landing page for presenting my work in a way that reflects my personality.",
   skills: ["HTML", "CSS", "JavaScript", "Git","Bootstrap"],
   github: "https://github.com/ellie-burton.github.io",
   link: "https://ellie-burton.github.io",
@@ -31,23 +31,16 @@ const projectList = [{
 {
   title: "Color Matching Game",
   description: "This simple game generates a random color and challenges the user to find the matching color via RGB value sliders.",
-  skills: ["Python", "Gmail API", "Spotipy", "Pandas"],
+  skills: ["Python", "Pygame",],
   github: "https://github.com/ellie-burton/ColorMatchGame",
   image: "images/color.jpg"
-},
-{
-  title: "Happiness/ Gratitude Initiative",
-  description: "I created a website to promote positivity and gratitude, and to help people find happiness in their daily lives.",
-  skills: ["Python", "iOS Shortcuts", "Gmail API", "Pandas"],
-  github: "https://github.com/username/spotify-analysis",
-  image: "images/happy.jpg"
 },
 {
   title: "Belize Conch Population Analysis",
   description: "I analyzed the population of the Belize Conch population on a study abroad trip. The data was then used to create a visualization that showed changes in the population over time.",
   skills: ["Python", "Pandas", "Matplotlib", "Pandas"],
-  github: "https://github.com/username/spotify-analysis",
-  image: "images/happy.jpg"
+  github: "https://github.com/ellie-burton/conch",
+  image: "images/conch.jpg"
 }
 // Add more projects here...
 ];
