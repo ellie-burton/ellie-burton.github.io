@@ -9,6 +9,23 @@ body {
 h2 {
 text-align: left;
 }
+.coursework-box {
+  background-color: #e3e1e1;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.coursework-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.coursework-text {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-bottom: 5px;
+}
 
 .main-content {
   display: flex;
