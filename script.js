@@ -160,6 +160,13 @@ const BookList = [{
   notes: "I really enjoyed this book. It was my first time reading a philosophy book and I found it very insightful."
 },
 {
+  title: "10% Happier",
+  author: "Dan Harris",
+  rating: 5,
+  isbn: "9780062265431",
+  notes: "I really enjoyed the skeptical tone of the author. It led to a convincing argument on the value of mindfulness in busy, productive lives. It was interesting to think that intentionally slowing down could actually improve the quality of your work and life."
+},
+{
   title: "What I Know for Sure",
   author: "Oprah Winfrey",
   rating: 4,
@@ -169,7 +176,7 @@ const BookList = [{
 {
   title: "The Power of Now",
   author: "Eckhart Tolle",
-  rating: 4,
+  rating: 3,
   isbn: "9781577314806",
   notes: "I found this book very intersting. It was a bit heavy at times, but overall I enjoyed it."
 },
