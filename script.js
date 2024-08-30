@@ -38,7 +38,7 @@ const projectList = [{
 {
   title: "Belize Conch Population Analysis",
   description: "I analyzed the population of the Belize Conch population on a study abroad trip. The data was then used to create a visualization that showed changes in the population over time.",
-  skills: ["Python", "Pandas", "Matplotlib", "Pandas"],
+  skills: ["Python", "Pandas", "Matplotlib"],
   github: "https://github.com/ellie-burton/conch",
   image: "images/conch.jpg"
 }
@@ -163,7 +163,7 @@ const BookList = [{
   title: "10% Happier",
   author: "Dan Harris",
   rating: 5,
-  isbn: "9780062265431",
+  isbn: "9780062917607",
   notes: "I really enjoyed the skeptical tone of the author. It led to a convincing argument on the value of mindfulness in busy, productive lives. It was interesting to think that intentionally slowing down could actually improve the quality of your work and life."
 },
 {
