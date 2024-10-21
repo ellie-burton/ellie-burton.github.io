@@ -157,6 +157,7 @@ const BookList = [{
   author: "Marcus Aurelius",
   rating: 5,
   isbn: "9780812968255",
+  image:"https://images.penguinrandomhouse.com/cover/9780812968255",
   notes: "I really enjoyed this book. It was my first time reading a philosophy book and I found it very insightful."
 },
 {
@@ -164,26 +165,30 @@ const BookList = [{
   author: "Dan Harris",
   rating: 5,
   isbn: "9780062917607",
-  notes: "I really enjoyed the skeptical tone of the author. It led to a convincing argument on the value of mindfulness in busy, productive lives. It was interesting to think that intentionally slowing down could actually improve the quality of your work and life."
+  image:"https://m.media-amazon.com/images/I/41RsOoojQXL._AC_UF1000,1000_QL80_.jpg",
+  notes: "I enjoyed the skeptical tone of the author. It led to a convincing argument on the value of mindfulness in busy, productive lives. It was interesting to think that intentionally slowing down could actually improve the quality of your work and life."
 },
 {
   title: "What I Know for Sure",
   author: "Oprah Winfrey",
   rating: 4,
   isbn: "9781250054050",
-  notes: "I loved this book. It was a very easy read and I found Oprah's insights very inspiring."
+  image:"https://images.booksense.com/images/050/054/9781250054050.jpg",
+  notes: "I loved this book. It was a very easy read and I found Oprah's insights very inspiring. It also referenced many books I've read and enjoyed/ that are on my TBR list."
 },
 {
   title: "The Power of Now",
   author: "Eckhart Tolle",
   rating: 3,
   isbn: "9781577314806",
-  notes: "I found this book very intersting. It was a bit heavy at times, but overall I enjoyed it."
+  image:"https://m.media-amazon.com/images/I/61Ij8nLooNL._AC_UF1000,1000_QL80_.jpg",
+  notes: "This book was a bit heavy at times, but overall I enjoyed it."
 },
 {
   title: "The Subtle Art of Not Giving a F*ck",
   author: "Mark Manson",
   rating: 4,
+  image:"https://jamesclear.com/wp-content/uploads/2016/08/The-Subtle-Art-of-Not-Giving-a-Fuck-by-Mark-Manson.png",
   isbn: "9780062457714",
   notes: "This book was a very easy read and I found it very insightful about the modern world's take on stoicism. I loved the author's sense of humor."
 },
@@ -192,6 +197,7 @@ const BookList = [{
   author: "Joshua Foer",
   rating: 3,
   isbn: "9780143120537",
+  image:"https://m.media-amazon.com/images/I/71wxNktCqKL._AC_UF1000,1000_QL80_.jpg",
   notes: "This book was very informative on memory and how it can be best utilized. I found it motivating to treat memory as an important skill to continualy exercise."
 },
 {
@@ -199,42 +205,50 @@ const BookList = [{
   author: "James Clear",
   rating: 5,
   isbn: "9780735211292",
-  notes: "I loved this book. I base many of my habits on it. Specifically, I enjoy utilizing habit stacking and '1% better everyday' in my daily life."
+  image:"https://m.media-amazon.com/images/I/81ANaVZk5LL._AC_UF1000,1000_QL80_.jpg",
+  notes: "I loved this book, and I base many of my habits on it. Specifically, I enjoy utilizing habit stacking and '1% better everyday' in my daily life."
 },
-{
-  title: "Outliers",
-  author: "Malcolm Gladwell",
-  rating: 4,
-  isbn: "9780141036250",
-  notes: "This book had an interesting viewpoint on success and how it can be achieved. I found it to be a unique perspective that broadened my view."
-},
-{
-  title: "Outlive",
-  author: "Peter Attia",
-  rating: 3,
-  isbn: "9780593236598",
-  notes: "This book was a bit heavy at times, but overall I enjoyed it. I found it to be a very informative book on health and how it can be best utilized."
-},
-{
-  title: "Man's Search for Meaning",
-  author: "Viktor E. Frankl",
-  rating: 4,
-  isbn: "9781846041242",
-  notes: "This book was incredibly inspiring. It gave a great perspective on the purpose of life and finding personal meaning."
-},
-{
-  title:"Ikigai",
-  author: "Héctor García",
-  rating: 5,
-  isbn: "9780143130727",
-  notes: "This book gave amazing insights on 'blue zones' and how many people achieve great longevity."
-}
+// {
+//   title: "Outliers",
+//   author: "Malcolm Gladwell",
+//   rating: 4,
+//   isbn: "9780141036250",
+//   notes: "This book had an interesting viewpoint on success and how it can be achieved. I found it to be a unique perspective that broadened my view."
+// },
+// {
+//   title: "Outlive",
+//   author: "Peter Attia",
+//   rating: 3,
+//   isbn: "9780593236598",
+//   notes: "I am fascinated by 'Blue Zones', so I really enjoyed this book. I found it to be a very informative book on health and how it can be best utilized."
+// },
+// {
+//   title: "Man's Search for Meaning",
+//   author: "Viktor E. Frankl",
+//   rating: 4,
+//   isbn: "9781846041242",
+//   notes: "This book was incredibly inspiring. It gave a great perspective on the purpose of life and finding personal meaning."
+// },
+// {
+//   title:"Ikigai",
+//   author: "Héctor García",
+//   rating: 5,
+//   isbn: "9780143130727",
+//   notes: "This book gave amazing insights on 'blue zones' and how many people achieve great longevity."
+// },
+// {
+//   title:"Designing Your Life: How to Build a Well-Lived, Joyful Life",
+//   author:"Bill Burnett and Dave Evans",
+//   rating: 4,
+//   isbn: "9781101875322",
+//   notes: "This book gave amazing insights on 'blue zones' and how many people achieve great longevity."
+// }
 ];
 // Function to create a book element
 function createBookElement(bookData) {
   const bookElement = document.createElement('div');
   bookElement.classList.add('book');
-  bookElement.style.setProperty('--bg-image', `url(https://covers.openlibrary.org/b/isbn/${bookData.isbn}-L.jpg)`);
+  bookElement.style.setProperty('--bg-image', `url(${bookData.image})`);
 
   bookElement.setAttribute('data-toggle', 'modal');
   bookElement.setAttribute('data-target', '#bookModal');
@@ -281,7 +295,7 @@ function createBookElement(book) {
   const bookElement = document.createElement('div');
   bookElement.classList.add('book');
 
-  const imageUrl = `url(https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg)`;
+  const imageUrl = `url(${book.image})`;
   bookElement.style.setProperty('--bg-image', imageUrl);
 
   bookElement.setAttribute('data-toggle', 'modal');
