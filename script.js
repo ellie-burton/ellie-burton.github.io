@@ -45,79 +45,6 @@ const projectList = [{
 // Add more projects here...
 ];
 
-const carouselInner = document.querySelector('.carousel-inner');
-const carouselIndicators = document.querySelector('.carousel-indicators');
-
-projectList.forEach((project, index) => {
-  const carouselItem = document.createElement('div');
-  carouselItem.classList.add('carousel-item');
-  if (index === 0) {
-    carouselItem.classList.add('active');
-  }
-
-  const imageContent = document.createElement('div');
-  imageContent.classList.add('image-content');
-  const img = document.createElement('img');
-  img.classList.add('d-block', 'w-100');
-  img.src = project.image;
-  img.alt = project.title;
-  imageContent.appendChild(img);
-  carouselItem.appendChild(imageContent);
-
-  const textContent = document.createElement('div');
-  textContent.classList.add('text-content');
-  const title = document.createElement('h5');
-  title.textContent = project.title;
-  textContent.appendChild(title);
-
-  const description = document.createElement('p');
-  description.textContent = project.description;
-  textContent.appendChild(description);
-
-  const skills = document.createElement('p');
-  skills.textContent = `Skills: ${project.skills.join(', ')}`;
-  textContent.appendChild(skills);
-
-  const githubLink = document.createElement('a');
-  githubLink.href = project.github;
-  githubLink.target = '_blank';
-  const githubLogo = document.createElement('img');
-  githubLogo.src = 'images/github.png'; // Path to your GitHub logo
-  githubLogo.alt = 'GitHub Logo';
-  githubLogo.style.width = '50px'; // Adjust the width of the GitHub logo here
-  githubLogo.style.height = 'auto'; // Maintain aspect ratio
-  githubLink.appendChild(githubLogo);
-  textContent.appendChild(githubLink);
-  //if link exists
-  if (project.link) {
-    const projectLink = document.createElement('a');
-    projectLink.href = project.link;
-    projectLink.target = '_blank';
-    const linkLogo = document.createElement('img');
-    linkLogo.src = 'images/link.png'; // Path to your GitHub logo
-    linkLogo.alt = 'Link Logo';
-    linkLogo.style.width = '50px'; // Adjust the width of the GitHub logo here
-    linkLogo.style.height = 'auto'; // Maintain aspect ratio
-    projectLink.appendChild(linkLogo);
-
-    textContent.appendChild(projectLink);
-  }
-
-  carouselItem.appendChild(textContent);
-
-  carouselInner.appendChild(carouselItem);
-
-  const indicator = document.createElement('li');
-  indicator.setAttribute('data-target', '#carouselExampleIndicators');
-  indicator.setAttribute('data-slide-to', index.toString());
-  if (index === 0) {
-    indicator.classList.add('active');
-  }
-  carouselIndicators.appendChild(indicator);
-});
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelectorAll('nav ul li a');
 
@@ -145,10 +72,95 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Initialize projects carousel
+  const carouselInner = document.querySelector('#projectCarousel .carousel-inner');
+  const carouselIndicators = document.querySelector('#projectCarousel .carousel-indicators');
+
+  projectList.forEach((project, index) => {
+    // Create carousel item
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item');
+    if (index === 0) carouselItem.classList.add('active');
+
+    // Create project card
+    const projectCard = document.createElement('div');
+    projectCard.classList.add('project-card');
+    
+    // Create image section
+    const imageSection = document.createElement('div');
+    imageSection.classList.add('project-image');
+    const img = document.createElement('img');
+    img.src = project.image;
+    img.alt = project.title;
+    imageSection.appendChild(img);
+    
+    // Create content section
+    const contentSection = document.createElement('div');
+    contentSection.classList.add('project-content');
+    
+    const title = document.createElement('h3');
+    title.textContent = project.title;
+    
+    const description = document.createElement('p');
+    description.textContent = project.description;
+    
+    const skills = document.createElement('div');
+    skills.classList.add('project-skills');
+    project.skills.forEach(skill => {
+      const badge = document.createElement('span');
+      badge.classList.add('skill-badge');
+      badge.textContent = skill;
+      skills.appendChild(badge);
+    });
+    
+    const links = document.createElement('div');
+    links.classList.add('project-links');
+    
+    if (project.github) {
+      const githubLink = document.createElement('a');
+      githubLink.href = project.github;
+      githubLink.target = '_blank';
+      githubLink.classList.add('btn', 'btn-outline-light');
+      githubLink.innerHTML = '<i class="fab fa-github"></i> View Code';
+      links.appendChild(githubLink);
+    }
+    
+    if (project.link) {
+      const demoLink = document.createElement('a');
+      demoLink.href = project.link;
+      demoLink.target = '_blank';
+      demoLink.classList.add('btn', 'btn-light');
+      demoLink.innerHTML = '<i class="fas fa-external-link-alt"></i> Live Demo';
+      links.appendChild(demoLink);
+    }
+    
+    contentSection.appendChild(title);
+    contentSection.appendChild(description);
+    contentSection.appendChild(skills);
+    contentSection.appendChild(links);
+    
+    projectCard.appendChild(imageSection);
+    projectCard.appendChild(contentSection);
+    carouselItem.appendChild(projectCard);
+    carouselInner.appendChild(carouselItem);
+
+    // Create indicator
+    const indicator = document.createElement('button');
+    indicator.type = 'button';
+    indicator.setAttribute('data-bs-target', '#projectCarousel');
+    indicator.setAttribute('data-bs-slide-to', index.toString());
+    if (index === 0) indicator.classList.add('active');
+    indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+    carouselIndicators.appendChild(indicator);
+  });
+
+  // Initialize carousel
+  new bootstrap.Carousel(document.querySelector('#projectCarousel'), {
+    interval: 5000,
+    touch: true
+  });
 });
-
-
-
 
 //BOOKS
 // List of book image URLs
@@ -245,35 +257,42 @@ const BookList = [{
 // }
 ];
 // Function to create a book element
-function createBookElement(bookData) {
+function createBookElement(book) {
   const bookElement = document.createElement('div');
   bookElement.classList.add('book');
-  bookElement.style.setProperty('--bg-image', `url(${bookData.image})`);
-
-  bookElement.setAttribute('data-toggle', 'modal');
-  bookElement.setAttribute('data-target', '#bookModal');
+  bookElement.style.setProperty('--bg-image', `url(${book.image})`);
 
   bookElement.addEventListener('click', () => {
-    populateBookModal(bookData);
+    const bookModal = new bootstrap.Modal(document.getElementById('bookModal'));
+    populateBookModal(book);
+    bookModal.show();
   });
   
   return bookElement;
 }
 
-function populateBookModal(bookData) {
-  const modalTitle = document.getElementById('bookModalTitle');
-  const modalAuthor = document.getElementById('bookModalAuthor');
-  const modalRating = document.getElementById('bookModalRating');
-  const modalNotes = document.getElementById('bookModalNotes');
-  const modalLink = document.getElementById('bookModalLink');
+function populateBookModal(book) {
+  const titleElement = document.getElementById('bookModalTitle');
+  const authorElement = document.getElementById('bookModalAuthor');
+  const ratingElement = document.getElementById('bookModalRating');
+  const notesElement = document.getElementById('bookModalNotes');
+  const linkElement = document.getElementById('bookModalLink');
 
-  modalTitle.textContent = bookData.title;
-  modalAuthor.textContent = `by ${bookData.author}`;
-  modalRating.textContent = Array(bookData.rating).join('⭐');
-  modalNotes.textContent = `My Notes: ${bookData.notes}`;
-  modalLink.href = `https://www.amazon.com/s?k=${bookData.isbn}`;
+  titleElement.textContent = book.title;
+  authorElement.textContent = `by ${book.author}`;
+  
+  // Create star rating
+  ratingElement.innerHTML = '';
+  for (let i = 0; i < 5; i++) {
+    const star = document.createElement('span');
+    star.classList.add('star');
+    star.innerHTML = i < book.rating ? '★' : '☆';
+    ratingElement.appendChild(star);
+  }
+  
+  notesElement.textContent = book.notes;
+  linkElement.href = `https://www.amazon.com/s?k=${book.isbn}`;
 }
-
 
 function appendBooks() {
   const container = document.getElementById('bookshelf');
@@ -291,37 +310,44 @@ function appendBooks() {
   container.appendChild(booksContainer);
 }
 
-function createBookElement(book) {
-  const bookElement = document.createElement('div');
-  bookElement.classList.add('book');
-
-  const imageUrl = `url(${book.image})`;
-  bookElement.style.setProperty('--bg-image', imageUrl);
-
-  bookElement.setAttribute('data-toggle', 'modal');
-  bookElement.setAttribute('data-target', '#bookModal');
-
-  bookElement.addEventListener('click', () => {
-    populateBookModal(book);
-  });
-
-  return bookElement;
-}
-
-function populateBookModal(book) {
-  const titleElement = document.getElementById('bookModalTitle');
-  const authorElement = document.getElementById('bookModalAuthor');
-  const ratingElement = document.getElementById('bookModalRating');
-  const notesElement = document.getElementById('bookModalNotes');
-  const linkElement = document.getElementById('bookModalLink');
-
-  titleElement.textContent = book.title;
-  authorElement.textContent = `by ${book.author}`;
-  ratingElement.textContent = Array(book.rating).join('⭐');
-  notesElement.textContent = `My Notes: ${book.notes}`;
-  linkElement.href = `https://www.amazon.com/s?k=${book.isbn}`;
-}
-
 // Append books when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', appendBooks);
+
+// Navbar scroll effect
+document.addEventListener('DOMContentLoaded', function() {
+  const navbar = document.querySelector('.navbar');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.section');
+  
+  // Add scrolled class to navbar when scrolling
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Highlight active section in navbar
+  function highlightNavLink() {
+    let current = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (window.scrollY >= sectionTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', highlightNavLink);
+  window.addEventListener('load', highlightNavLink);
+});
 

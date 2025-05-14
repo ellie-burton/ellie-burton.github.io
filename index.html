@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -15,23 +17,16 @@
     <title>Ellie Burton - Portfolio</title>
   </head>
   <body>
-    <!-- Existing Navbar content -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="navbarTop" style="color: rgb(156, 132, 129);">
-  <div class="container-fluid">
-    <div class="row w-100">
-      <div class="col-6 d-flex align-items-center">
-        <a class="navbar-brand" style='font-size: xx-large' href="#">Ellie Burton</a>
-      </div>
-      <div class="col-3 d-flex justify-content-end align-items-center">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Ellie Burton</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      </div>
-      <div class="col-9 d-flex">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#about">About Me <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#about">About Me</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#projects">Projects</a>
@@ -42,42 +37,45 @@
             <li class="nav-item">
               <a class="nav-link" href="#books">Bookshelf</a>
             </li>
-            <!-- New Art Section Link -->
             <li class="nav-item">
               <a class="nav-link" href="#art">Art</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="mailto:aeburton3@crimson.ua.edu">Email</a>
-                <a class="dropdown-item" href="resume.pdf">Resume</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="https://www.linkedin.com/in/elliekburton" target="_blank">LinkedIn</a>
-                <a class="dropdown-item" href="https://github.com/ellie-burton" target="_blank">GitHub</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="https://www.venmo.com/u/Elliekburton" target="_blank">Buy Me a Coffee</a>
-              </div>
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Contact
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="mailto:aeburton3@crimson.ua.edu">Email</a></li>
+                <li><a class="dropdown-item" href="resume.pdf">Resume</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="https://www.linkedin.com/in/elliekburton" target="_blank">LinkedIn</a></li>
+                <li><a class="dropdown-item" href="https://github.com/ellie-burton" target="_blank">GitHub</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="https://www.venmo.com/u/Elliekburton" target="_blank">Buy Me a Coffee</a></li>
+              </ul>
             </li>
           </ul>
         </div>
       </div>
-    </div>
-  </div>
-</nav>
-
+    </nav>
 
     <!-- Desktop header with headshot and name PNGs -->
-    <div class="desktop-header">
-      <div class="h-50 d-inline-block" style="width: 100%; background-color: rgb(156, 132, 129); text-align: center; margin-top: 65px;">
-        Ellie Burton
-        <br />
-        <br />
-        <br />
-        <img src="images/headshot.png" alt="Headshot" class="headshot" style="margin: 0 auto" />
-        <img src="images/name.png" alt="Name" height="150" style="margin: 0 auto" />
+    <div class="hero-section">
+      <div class="hero-content">
+        <div class="hero-image">
+          <img src="images/headshot.png" alt="Ellie Burton" class="headshot" />
+        </div>
+        <div class="hero-text">
+          <h1 class="hero-title">Ellie Burton</h1>
+          <p class="hero-subtitle">Computer Science & Data Science Student</p>
+          <div class="hero-cta">
+            <a href="#about" class="btn btn-primary btn-lg">Learn More</a>
+            <a href="#contact" class="btn btn-outline-primary btn-lg">Get in Touch</a>
+          </div>
+        </div>
       </div>
+      <div class="hero-background"></div>
     </div>
-
 
     <div class="section full-width" id="about">
       <div class="main-content">
@@ -94,22 +92,22 @@
       <div class="main-content">
         <section>
           <h2>Projects</h2>
-          <p>Here are some of the projects I have worked on. Click on the Github logo to navigate to the repositories, and links where available to view a hosted version.</p>
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
+          <p>Here are some of the projects I have worked on. Click on the icons to view the source code or live demo.</p>
+          <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
               <!-- Indicators will be dynamically generated -->
-            </ol>
+            </div>
             <div class="carousel-inner">
               <!-- Slides will be dynamically generated -->
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </section>
       </div>
@@ -119,60 +117,105 @@
       <div class="main-content">
         <section>
           <h2>Academic Highlights</h2>
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-4">
-                <div class="card" >
-                  <img src="./images/ida.png" class="card-img-top" alt="IDA">
-                  <div class="card-body">
-                    <h5 class="card-title">Sex Trafficking Analytics for Network Detection and Disruption</h5>
-                    <p class="card-text">The STANDD initiative focuses on developing novel analytical techniques to group ad data from popular sites, creating tools that law enforcement can use to combat sex trafficking more effectively. By analyzing online sex advertisements using graph-based methods, we have built a dataset of over 60 million ads, scraping 100,000 daily, to identify potential trafficking situations. This method enhances our analysis, helping law enforcement identify over 50 potential victims.</p>
-                    <p class="card-text">Through this project, I have learned tremendously about data science and its real-world applications in making a societal impact. Our work demonstrates the power of technology in driving social change, with goals to expand our dataset and refine our algorithms to continue aiding in the fight against sex trafficking.                    </p>
-                    <a href="https://ida.culverhouse.ua.edu/initiatives/human-trafficking/" class="btn btn-secondary" style="font-size: small;">Read More</a>
-                    <a href="https://thecrimsonwhite.com/112979/news/professors-combat-sex-trafficking-with-data-initiative/" class="btn btn-secondary" style="font-size: small;">In the News</a>
-                  </div>
+          <div class="research-grid">
+            <!-- STANDD Project -->
+            <div class="research-card">
+              <div class="research-content">
+                <div class="research-title-row">
+                  <img src="./images/ida.png" alt="IDA" class="logo-inline">
+                  <h3>Sex Trafficking Analytics for Network Detection and Disruption</h3>
                 </div>
-              </div>
-              <div class="col-12 col-md-4">
-                <div class="card" >
-                  <img src="images/culverhouse.jpg" class="card-img-top" alt="Economics">
-                  <div class="card-body">
-                    <h5 class="card-title">Economics Experiment Web Interface</h5>
-                    <p class="card-text">My research focuses on understanding decision-making and risk. As a research assistant, my primary goal is to design and implement a dynamic web interface that enables researchers to conduct their experiments efficiently. This involves developing a full-stack application that integrates various tools and APIs for seamless data collection and analysis. Through this role, I have gained valuable experience in software development and project management while contributing to innovative research that explores the complexities of human behavior and decision-making processes.</p>
-                    <a href="https://ida.culverhouse.ua.edu/initiatives/human-trafficking/" class="btn btn-secondary" style="font-size: small;">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-md-4">
-                <div class="card"">
-                  <img src="images/acmw.png" class="card-img-top" alt="ACM-W">
-                  <div class="card-body">
-                    <h5 class="card-title">ACM-W</h5>
-                    <p class="card-text">As the President of the UA Association of Computing Machinery - Women (ACM-W), I have revitalized the organization, growing membership from 4 to 45 active members. My leadership focuses on creating an inclusive environment where everyone feels valued and motivated. I have organized workshops, guest lectures, and networking events that enhance learning and professional opportunities for women in computing. My goal is to foster teamwork, encourage individual growth, and provide resources that empower our members to excel in their academic and professional endeavors.</p>
-                    <a href="https://ida.culverhouse.ua.edu/initiatives/human-trafficking/" class="btn btn-secondary" style="font-size: small;">Read More</a>
-                  </div>
+                <p>The STANDD initiative focuses on developing novel analytical techniques to group ad data from popular sites, creating tools that law enforcement can use to combat sex trafficking more effectively. By analyzing online sex advertisements using graph-based methods, we have built a dataset of over 60 million ads, scraping 100,000 daily, to identify potential trafficking situations.</p>
+                <p>Through this project, I have learned tremendously about data science and its real-world applications in making a societal impact. Our work demonstrates the power of technology in driving social change, with goals to expand our dataset and refine our algorithms to continue aiding in the fight against sex trafficking.</p>
+                <div class="research-links">
+                  <a href="https://ida.culverhouse.ua.edu/initiatives/human-trafficking/" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Learn More
+                  </a>
+                  <a href="https://thecrimsonwhite.com/112979/news/professors-combat-sex-trafficking-with-data-initiative/" class="btn btn-outline-primary" target="_blank">
+                    <i class="fas fa-newspaper"></i> In the News
+                  </a>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="coursework-box">
-                  <h4 class="coursework-title">Relevant Coursework</h4>
-                  <div class="row">
-                    <div class="col-12 col-md-3">
-                      <p class="coursework-text">• Data Structures and Algorithms<br>• Database Management Systems<br>• Software Engineering</p>
-                    </div>
-                    <div class="col-12 col-md-3">
-                      <p class="coursework-text">• Linear Algebra<br>• Discrete Mathematics<br>• Theory of Probability<br>• Formal Languages and Machines (IP)</p>
-                    </div>
-                    <div class="col-12 col-md-3">
-                      <p class="coursework-text">• Operating Systems<br>• Digital Logic<br>• Microcomputers<br>• Mathematical Data Science (IP)</p>
-                    </div>
-                    <div class="col-12 col-md-3">
-                      <p class="coursework-text">• Intro Scientific Computing<br>• Legal & Ethical Issues in Computing<br>• Web Development (IP)<br>• Machine Learning (IP)</p>
-                    </div>
-                  </div>
+
+            <!-- Economics Project -->
+            <div class="research-card">
+              <div class="research-content">
+                <div class="research-title-row">
+                  <img src="images/culverhouse.jpg" alt="Economics" class="logo-inline">
+                  <h3>Economics Experiment Web Interface</h3>
                 </div>
+                <p>My research focuses on understanding decision-making and risk. As a research assistant, my primary goal is to design and implement a dynamic web interface that enables researchers to conduct their experiments efficiently. This involves developing a full-stack application that integrates various tools and APIs for seamless data collection and analysis.</p>
+                <p>Through this role, I have gained valuable experience in software development and project management while contributing to innovative research that explores the complexities of human behavior and decision-making processes.</p>
+                <div class="research-links">
+                  <a href="https://ida.culverhouse.ua.edu/initiatives/human-trafficking/" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ACM-W -->
+            <div class="research-card">
+              <div class="research-content">
+                <div class="research-title-row">
+                  <img src="images/acmw.png" alt="ACM-W" class="logo-inline">
+                  <h3>ACM-W Leadership</h3>
+                </div>
+                <p>As the President of the UA Association of Computing Machinery - Women (ACM-W), I have revitalized the organization, growing membership from 4 to 45 active members. My leadership focuses on creating an inclusive environment where everyone feels valued and motivated.</p>
+                <p>I have organized workshops, guest lectures, and networking events that enhance learning and professional opportunities for women in computing. My goal is to foster teamwork, encourage individual growth, and provide resources that empower our members to excel in their academic and professional endeavors.</p>
+                <div class="research-links">
+                  <a href="https://ida.culverhouse.ua.edu/initiatives/human-trafficking/" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coursework Section -->
+            <div class="coursework-card">
+              <h3>Relevant Coursework</h3>
+              <div class="coursework-grid">
+                <div class="coursework-column">
+                  <h4>Computer Science</h4>
+                  <ul>
+                    <li>Data Structures and Algorithms</li>
+                    <li>Database Management Systems</li>
+                    <li>Software Engineering</li>
+                    <li>Web Development</li>
+                    <li>Programming Languages</li>
+                    <li>Formal Languages and Machines</li>
+                    <li>Operating Systems</li>
+                    <li>Digital Logic</li>
+                    <li>Microcomputers</li>
+                    <li>Computer Algorithms (IP)</li>
+                  </ul>
+                </div>
+                <div class="coursework-column">
+                  <h4>Data Science</h4>
+                  <ul>
+                    <li>Intro to Scientific Computing</li>
+                    <li>Machine Learning</li>
+                    <li>Reinforcement Learning</li>
+                    <li>Data Science</li>
+                    <li>Legal & Ethical Issues in Computing</li>
+                    <li>Artificial Intelligence (IP)</li>
+                  </ul>
+                </div>
+                <div class="coursework-column">
+                  <h4>Mathematics</h4>
+                  <ul>
+                    <li>Calculus III</li>
+                    <li>Linear Algebra</li>
+                    <li>Discrete Mathematics</li>
+                    <li>Theory of Probability</li>
+                    <li>Mathematical Data Science</li>
+                    <li>Mathematical Statistics I</li>
+                    <li>Mathematical Statistics II (IP)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -191,23 +234,23 @@
     </div>
   
     <!-- Book Modal -->
-    <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="bookModalTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="bookModalTitle"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p id="bookModalAuthor"></p>
-            <p id="bookModalRating"></p>
-            <p id="bookModalNotes"></p>
+            <div class="book-modal-content">
+              <p id="bookModalAuthor" class="book-author"></p>
+              <div id="bookModalRating" class="book-rating"></div>
+              <p id="bookModalNotes" class="book-notes"></p>
+            </div>
           </div>
           <div class="modal-footer">
             <a id="bookModalLink" href="#" target="_blank" class="btn btn-primary">Buy on Amazon</a>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -218,145 +261,99 @@
     <section>
       <h2>Art</h2>
       <p>I have lots of artistic hobbies and love to create!</p>
-      <div id="artGallery">
-        <div class="row">
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/watercolor2.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Watercolor</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/candles.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Painted Candles</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/chess.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Resin Chess Set</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/clayboot.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Clay Cowgirl Boot</h5>
-              </div>
-            </div>
+      <div id="artGallery" class="art-grid">
+        <div class="art-card">
+          <img src="images/art/watercolor2.png" alt="Watercolor" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Watercolor</h5>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/clayface.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Clay Face</h5>
-              </div>
-            </div>
+        <div class="art-card">
+          <img src="images/art/candles.png" alt="Painted Candles" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Painted Candles</h5>
           </div>
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/dogprint.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Boxer Stamp</h5>
-              </div>
-            </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/chess.png" alt="Resin Chess Set" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Resin Chess Set</h5>
           </div>
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/hummingbird.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Hummingbird Stained Glass</h5>
-              </div>
-            </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/clayboot.png" alt="Clay Cowgirl Boot" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Clay Cowgirl Boot</h5>
           </div>
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/macrame.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Macrame Plant Hanger</h5>
-              </div>
-            </div>
+        </div>
+        
+        <div class="art-card">
+          <img src="images/art/dogprint.png" alt="Boxer Stamp" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Boxer Stamp</h5>
           </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/hummingbird.png" alt="Hummingbird Stained Glass" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Hummingbird Stained Glass</h5>
           </div>
-          <div class="row">
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/phone.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">DIY Phone Case</h5>
-              </div>
-            </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/macrame.png" alt="Macrame Plant Hanger" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Macrame Plant Hanger</h5>
           </div>
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/print.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Stamp Print</h5>
-              </div>
-            </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/phone.jpg" alt="DIY Phone Case" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">DIY Phone Case</h5>
           </div>
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/print2.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Stamp Print</h5>
-              </div>
-            </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/print.jpg" alt="Stamp Print" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Stamp Print</h5>
           </div>
-          <div class="col-12 col-md-3">
-            <div class = "card" style="width: 12rem;">
-              <img src="images/art/print3.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Stamp Print</h5>
-              </div>
-            </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/print2.png" alt="Stamp Print" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Stamp Print</h5>
           </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/print3.png" alt="Stamp Print" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Stamp Print</h5>
           </div>
-          <div class="row">
-            <div class="col-12 col-md-3">
-              <div class = "card" style="width: 12rem;">
-                <img src="images/art/scrapbook.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Scrapbook</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-3">
-              <div class = "card" style="width: 12rem;">
-                <img src="images/art/snailmail.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Snail Mail</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-3">
-              <div class = "card" style="width: 12rem;">
-                <img src="images/art/stainedglass.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Stained Glass</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-3">
-              <div class = "card" style="width: 12rem;">
-                <img src="images/art/watercolor.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Watercolor</h5>
-                </div>
-              </div>
-            </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/scrapbook.png" alt="Scrapbook" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Scrapbook</h5>
           </div>
-
-  
+        </div>
+        <div class="art-card">
+          <img src="images/art/snailmail.png" alt="Snail Mail" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Snail Mail</h5>
+          </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/stainedglass.png" alt="Stained Glass" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Stained Glass</h5>
+          </div>
+        </div>
+        <div class="art-card">
+          <img src="images/art/watercolor.jpg" alt="Watercolor" class="art-img">
+          <div class="art-card-body">
+            <h5 class="art-card-title">Watercolor</h5>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </div>
@@ -364,12 +361,11 @@
 
 
   
-    <footer>
-      <p>&copy; August 2024 Ellie Burton.</p>
+    <footer style="color: #fff;">
+      <p>&copy; May 2025 Ellie Burton.</p>
     </footer>
   
     <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
   </html>
