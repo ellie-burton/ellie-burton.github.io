@@ -162,100 +162,46 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-//BOOKS
-// List of book image URLs
-const BookList = [{
-  title: "Meditations",
-  author: "Marcus Aurelius",
-  rating: 5,
-  isbn: "9780812968255",
-  image:"https://images.penguinrandomhouse.com/cover/9780812968255",
-  notes: "I really enjoyed this book. It was my first time reading a philosophy book and I found it very insightful."
-},
-{
-  title: "10% Happier",
-  author: "Dan Harris",
-  rating: 5,
-  isbn: "9780062917607",
-  image:"https://m.media-amazon.com/images/I/41RsOoojQXL._AC_UF1000,1000_QL80_.jpg",
-  notes: "I enjoyed the skeptical tone of the author. It led to a convincing argument on the value of mindfulness in busy, productive lives. It was interesting to think that intentionally slowing down could actually improve the quality of your work and life."
-},
-{
-  title: "What I Know for Sure",
-  author: "Oprah Winfrey",
-  rating: 4,
-  isbn: "9781250054050",
-  image:"https://images.booksense.com/images/050/054/9781250054050.jpg",
-  notes: "I loved this book. It was a very easy read and I found Oprah's insights very inspiring. It also referenced many books I've read and enjoyed/ that are on my TBR list."
-},
-{
-  title: "The Power of Now",
-  author: "Eckhart Tolle",
-  rating: 3,
-  isbn: "9781577314806",
-  image:"https://m.media-amazon.com/images/I/61Ij8nLooNL._AC_UF1000,1000_QL80_.jpg",
-  notes: "This book was a bit heavy at times, but overall I enjoyed it."
-},
-{
-  title: "The Subtle Art of Not Giving a F*ck",
-  author: "Mark Manson",
-  rating: 4,
-  image:"https://jamesclear.com/wp-content/uploads/2016/08/The-Subtle-Art-of-Not-Giving-a-Fuck-by-Mark-Manson.png",
-  isbn: "9780062457714",
-  notes: "This book was a very easy read and I found it very insightful about the modern world's take on stoicism. I loved the author's sense of humor."
-},
-{
-  title: "Moonwalking with Einstein",
-  author: "Joshua Foer",
-  rating: 3,
-  isbn: "9780143120537",
-  image:"https://m.media-amazon.com/images/I/71wxNktCqKL._AC_UF1000,1000_QL80_.jpg",
-  notes: "This book was very informative on memory and how it can be best utilized. I found it motivating to treat memory as an important skill to continualy exercise."
-},
-{
-  title: "Atomic Habits",
-  author: "James Clear",
-  rating: 5,
-  isbn: "9780735211292",
-  image:"https://m.media-amazon.com/images/I/81ANaVZk5LL._AC_UF1000,1000_QL80_.jpg",
-  notes: "I loved this book, and I base many of my habits on it. Specifically, I enjoy utilizing habit stacking and '1% better everyday' in my daily life."
-},
-// {
-//   title: "Outliers",
-//   author: "Malcolm Gladwell",
-//   rating: 4,
-//   isbn: "9780141036250",
-//   notes: "This book had an interesting viewpoint on success and how it can be achieved. I found it to be a unique perspective that broadened my view."
-// },
-// {
-//   title: "Outlive",
-//   author: "Peter Attia",
-//   rating: 3,
-//   isbn: "9780593236598",
-//   notes: "I am fascinated by 'Blue Zones', so I really enjoyed this book. I found it to be a very informative book on health and how it can be best utilized."
-// },
-// {
-//   title: "Man's Search for Meaning",
-//   author: "Viktor E. Frankl",
-//   rating: 4,
-//   isbn: "9781846041242",
-//   notes: "This book was incredibly inspiring. It gave a great perspective on the purpose of life and finding personal meaning."
-// },
-// {
-//   title:"Ikigai",
-//   author: "Héctor García",
-//   rating: 5,
-//   isbn: "9780143130727",
-//   notes: "This book gave amazing insights on 'blue zones' and how many people achieve great longevity."
-// },
-// {
-//   title:"Designing Your Life: How to Build a Well-Lived, Joyful Life",
-//   author:"Bill Burnett and Dave Evans",
-//   rating: 4,
-//   isbn: "9781101875322",
-//   notes: "This book gave amazing insights on 'blue zones' and how many people achieve great longevity."
-// }
-];
+//BOOKS: Fetch from Google Sheets
+const SHEET_ID = '1_7jMs8q0YhclKKfkTF249PsR0fsNWifkyF1BIEGDqj8';
+const RANGE = 'Sheet1!A1:G100';
+const API_KEY = 'AIzaSyDQjQd7XCqs81l0bhTa9vQ3tcc9f9jdeHM';
+
+function fetchBooks() {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+  return fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (!data.values) return [];
+      const [header, ...rows] = data.values;
+      return rows.map(row => {
+        const book = {};
+        header.forEach((key, i) => book[key] = row[i]);
+        return book;
+      });
+    });
+}
+
+function renderBooks(books) {
+  const container = document.getElementById('bookshelf');
+  container.innerHTML = '';
+  const booksContainer = document.createElement('div');
+  booksContainer.classList.add('books');
+  books.forEach(book => {
+    const bookElement = createBookElement(book); // Use your existing function
+    booksContainer.appendChild(bookElement);
+  });
+  booksContainer.id = 'style-3';
+  container.appendChild(booksContainer);
+}
+
+// Replace BookList and appendBooks with dynamic fetch
+// Append books when the DOM content is loaded
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetchBooks().then(renderBooks);
+});
+
 // Function to create a book element
 function createBookElement(book) {
   const bookElement = document.createElement('div');
@@ -294,25 +240,6 @@ function populateBookModal(book) {
   linkElement.href = `https://www.amazon.com/s?k=${book.isbn}`;
 }
 
-function appendBooks() {
-  const container = document.getElementById('bookshelf');
-  const booksContainer = document.createElement('div');
-  booksContainer.classList.add('books');
-
-  BookList.sort((a, b) => a.title.localeCompare(b.title));
-
-  BookList.forEach(book => {
-    const bookElement = createBookElement(book);
-    booksContainer.appendChild(bookElement);
-  });
-
-  booksContainer.id = 'style-3';
-  container.appendChild(booksContainer);
-}
-
-// Append books when the DOM content is loaded
-document.addEventListener('DOMContentLoaded', appendBooks);
-
 // Navbar scroll effect
 document.addEventListener('DOMContentLoaded', function() {
   const navbar = document.querySelector('.navbar');
@@ -349,5 +276,126 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.addEventListener('scroll', highlightNavLink);
   window.addEventListener('load', highlightNavLink);
+});
+
+// PROJECTS: Fetch from Google Sheets
+const PROJECTS_SHEET_ID = '137F6i5jNKkxvptAw3wLZSanymjKGcb3U-BnHwhGe8FU';
+const PROJECTS_RANGE = 'Sheet1!A1:G100';
+
+function fetchProjects() {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${PROJECTS_SHEET_ID}/values/${PROJECTS_RANGE}?key=${API_KEY}`;
+  return fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (!data.values) return [];
+      const [header, ...rows] = data.values;
+      return rows.map(row => {
+        const project = {};
+        header.forEach((key, i) => project[key] = row[i]);
+        return project;
+      });
+    });
+}
+
+function renderProjects(projects) {
+  const carouselInner = document.querySelector('#projectCarousel .carousel-inner');
+  const carouselIndicators = document.querySelector('#projectCarousel .carousel-indicators');
+  if (!carouselInner || !carouselIndicators) return;
+  carouselInner.innerHTML = '';
+  carouselIndicators.innerHTML = '';
+
+  projects.forEach((project, index) => {
+    // Create carousel item
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item');
+    if (index === 0) carouselItem.classList.add('active');
+
+    // Create project card
+    const projectCard = document.createElement('div');
+    projectCard.classList.add('project-card');
+
+    // Image section
+    const imageSection = document.createElement('div');
+    imageSection.classList.add('project-image');
+    const img = document.createElement('img');
+    img.src = project.image;
+    img.alt = project.title;
+    imageSection.appendChild(img);
+
+    // Content section
+    const contentSection = document.createElement('div');
+    contentSection.classList.add('project-content');
+
+    const title = document.createElement('h3');
+    title.textContent = project.title;
+
+    const description = document.createElement('p');
+    description.textContent = project.description;
+
+    // Skills (split by semicolon)
+    const skills = document.createElement('div');
+    skills.classList.add('project-skills');
+    if (project.skills) {
+      project.skills.split(';').forEach(skill => {
+        const badge = document.createElement('span');
+        badge.classList.add('skill-badge');
+        badge.textContent = skill.trim();
+        skills.appendChild(badge);
+      });
+    }
+
+    // Links
+    const links = document.createElement('div');
+    links.classList.add('project-links');
+    if (project.github) {
+      const githubLink = document.createElement('a');
+      githubLink.href = project.github;
+      githubLink.target = '_blank';
+      githubLink.classList.add('btn', 'btn-outline-light');
+      githubLink.innerHTML = '<i class="fab fa-github"></i> View Code';
+      links.appendChild(githubLink);
+    }
+    if (project.link) {
+      const demoLink = document.createElement('a');
+      demoLink.href = project.link;
+      demoLink.target = '_blank';
+      demoLink.classList.add('btn', 'btn-light');
+      demoLink.innerHTML = '<i class="fas fa-external-link-alt"></i> Live Demo';
+      links.appendChild(demoLink);
+    }
+
+    contentSection.appendChild(title);
+    contentSection.appendChild(description);
+    contentSection.appendChild(skills);
+    contentSection.appendChild(links);
+
+    projectCard.appendChild(imageSection);
+    projectCard.appendChild(contentSection);
+    carouselItem.appendChild(projectCard);
+    carouselInner.appendChild(carouselItem);
+
+    // Carousel indicator
+    const indicator = document.createElement('button');
+    indicator.type = 'button';
+    indicator.setAttribute('data-bs-target', '#projectCarousel');
+    indicator.setAttribute('data-bs-slide-to', index.toString());
+    if (index === 0) indicator.classList.add('active');
+    indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+    carouselIndicators.appendChild(indicator);
+  });
+
+  // Re-initialize carousel (if needed)
+  new bootstrap.Carousel(document.querySelector('#projectCarousel'), {
+    interval: 5000,
+    touch: true
+  });
+}
+
+// On DOMContentLoaded, fetch and render projects
+// Remove or comment out the old projectList and its rendering logic
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetchBooks().then(renderBooks);
+  fetchProjects().then(renderProjects);
 });
 

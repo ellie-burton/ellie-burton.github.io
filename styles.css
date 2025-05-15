@@ -888,6 +888,7 @@ background-color: #333;
 
 /* Project Styles */
 #projectCarousel {
+  margin-top: 0.5rem; /* Reduce top margin */
   margin: var(--spacing-xl) auto; /* Center the carousel */
   max-width: 1200px; /* Increase max-width */
   width: 90%; /* Use percentage for responsive width */
@@ -1093,9 +1094,9 @@ background-color: #333;
 
 /* Research Section Styles */
 .research-grid {
+  margin-top: 0.5rem; /* Reduce from var(--spacing-xl) */
   display: grid;
   gap: var(--spacing-xl);
-  margin-top: var(--spacing-xl);
 }
 
 .research-card {
@@ -1324,10 +1325,10 @@ background-color: #333;
 }
 
 .art-grid {
+  margin-top: 0.5rem; /* Reduce from var(--spacing-xl) */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--spacing-xl);
-  margin-top: var(--spacing-xl);
 }
 
 .art-card {
@@ -1384,5 +1385,28 @@ background-color: #333;
   .art-img {
     height: 120px;
   }
+}
+
+/* 1. Reduce space between projects <p> and carousel */
+#projects .main-content > section > p {
+  margin-bottom: 1rem; /* Reduce from default spacing */
+}
+
+/* 2. Reduce space between Academic Highlights heading and first card */
+#research h2 {
+  margin-bottom: 1.5rem; /* Reduce from var(--spacing-lg) */
+}
+
+/* 3. Reduce space before Art heading */
+#art .main-content {
+  padding-top: 1.5rem; /* Reduce from default */
+}
+#art section {
+  margin-top: 0; /* Remove any extra margin */
+}
+
+/* 4. Reduce space after Art subparagraph before art cards */
+#art section > p {
+  margin-bottom: 1rem; /* Reduce from default spacing */
 }
 
