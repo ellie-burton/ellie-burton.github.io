@@ -288,9 +288,25 @@ background-color: var(--primary);
 
 footer {
   text-align: center;
-  padding: 10px;
+  padding: 1.25rem 0 0.75rem 0; /* Reduce excess padding */
   background-color: var(--primary);
   color: var(--light-pink);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  border-top-left-radius: var(--border-radius-lg);
+  border-top-right-radius: var(--border-radius-lg);
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  footer {
+    font-size: 1rem;
+    padding: 1rem 0 0.5rem 0;
+    border-radius: 0;
+    margin-top: 1rem;
+  }
 }
 
 .slide-overlay {
