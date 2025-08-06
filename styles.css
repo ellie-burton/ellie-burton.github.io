@@ -906,8 +906,8 @@ background-color: #333;
 #projectCarousel {
   margin-top: 0.5rem; /* Reduce top margin */
   margin: var(--spacing-xl) auto; /* Center the carousel */
-  max-width: 1400px; /* Increase max-width */
-  width: 95%; /* Use percentage for responsive width */
+  max-width: 1200px; /* Increase max-width */
+  width: 90%; /* Use percentage for responsive width */
 }
 
 .project-card {
@@ -940,7 +940,7 @@ background-color: #333;
 }
 
 .project-content {
-  flex: 0 0 80%; /* Increase content width to 60% */
+  flex: 0 0 60%; /* Increase content width to 60% */
   padding: var(--spacing-xl);
   display: flex;
   flex-direction: column;
@@ -994,14 +994,14 @@ background-color: #333;
 
 .project-content h3 {
   color: var(--background);
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin: 0;
 }
 
 .project-content p {
   color: var(--background);
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
